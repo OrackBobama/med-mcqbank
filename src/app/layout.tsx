@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "RACP Written Examination MCQ Bank",
+  title: "Fracto — RACP Divisional Written Examination MCQ Bank",
   description:
-    "Clinical MCQ Bank for Medical Trainees preparing for the RACP Divisional Written Examination",
+    "Fracto Clinical MCQ Bank & Analytics Platform for Medical Trainees preparing for the RACP Divisional Written Examination",
+  icons: {
+    icon: "/fracto-logo.svg",
+  },
 };
 
 export default function RootLayout({

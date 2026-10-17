@@ -1,6 +1,6 @@
-# RACP Divisional Written Examination — MCQ Bank
+# Fracto — RACP Divisional Written Examination MCQ Bank
 
-A clinical multiple-choice question (MCQ) bank web application built for Basic Physician Trainees preparing for the **Royal Australasian College of Physicians (RACP) Divisional Written Examination**.
+**Fracto** is a clinical multiple-choice question (MCQ) bank web application built for Basic Physician Trainees preparing for the **Royal Australasian College of Physicians (RACP) Divisional Written Examination**.
 
 ---
 

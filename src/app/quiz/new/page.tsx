@@ -216,10 +216,10 @@ export default function NewQuizPage() {
         <div className="mb-6">
           <span className="inline-flex items-center gap-1.5 rounded-md bg-clinical-50 px-2.5 py-1 text-xs font-semibold text-clinical-700 ring-1 ring-inset ring-clinical-200">
             <SlidersHorizontal className="h-3.5 w-3.5" />
-            Custom Quiz Generator
+            Fracto Custom Quiz Generator
           </span>
           <h1 className="mt-2 text-2xl font-bold tracking-tight text-slate-900">
-            Configure RACP Practice Examination
+            Configure Fracto RACP Practice Examination
           </h1>
           <p className="mt-1 text-sm text-slate-600">
             Filter by question status (Whole Bank, New, Incorrect, or New &amp; Incorrect), select your target specialties, and define the number of 4-option (A–D) vignettes.

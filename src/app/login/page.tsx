@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import FractoLogo from "@/components/FractoLogo";
 import {
-  Stethoscope,
   Mail,
   KeyRound,
   ArrowRight,
@@ -84,15 +84,15 @@ export default function LoginPage() {
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <a
           href="/"
-          className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-clinical-800 text-white shadow-md transition hover:bg-clinical-700"
+          className="mx-auto flex w-fit items-center justify-center transition hover:scale-105"
         >
-          <Stethoscope className="h-7 w-7" />
+          <FractoLogo size={60} className="drop-shadow-md" />
         </a>
-        <h1 className="mt-5 text-center text-2xl font-bold tracking-tight text-slate-900">
-          RACP Divisional Written Examination
+        <h1 className="mt-4 text-center text-2xl font-extrabold tracking-tight text-slate-900">
+          Sign in to Fracto
         </h1>
-        <p className="mt-1.5 text-center text-sm text-slate-600">
-          Basic Physician Training MCQ Question Bank &amp; Analytics
+        <p className="mt-1 text-center text-sm text-slate-600">
+          RACP Divisional Written Examination MCQ Bank &amp; Analytics
         </p>
       </div>
 
@@ -229,7 +229,7 @@ export default function LoginPage() {
           )}
 
           <div className="mt-6 border-t border-slate-100 pt-5 text-center text-xs text-slate-600">
-            New to RACP Exam Prep?{" "}
+            New to Fracto?{" "}
             <a
               href="/register"
               className="font-semibold text-clinical-700 hover:underline"

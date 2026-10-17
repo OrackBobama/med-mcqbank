@@ -3,8 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import FractoLogo from "@/components/FractoLogo";
 import {
-  Stethoscope,
   LayoutDashboard,
   FilePlus2,
   LogOut,
@@ -30,20 +30,21 @@ export default function Navbar({ userEmail, userName }: NavbarProps) {
     <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6">
         <Link href="/dashboard" className="flex items-center gap-3 group">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-clinical-800 text-white shadow-sm transition group-hover:bg-clinical-700">
-            <Stethoscope className="h-5 w-5" />
-          </div>
+          <FractoLogo
+            size={42}
+            className="shrink-0 drop-shadow-sm transition-transform group-hover:scale-105"
+          />
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-base font-bold tracking-tight text-slate-900">
-                RACP Written Exam Prep
+              <span className="text-lg font-extrabold tracking-tight text-slate-900">
+                Fracto
               </span>
               <span className="hidden rounded-md bg-clinical-50 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-clinical-700 ring-1 ring-inset ring-clinical-200 sm:inline-block">
-                Divisional MCQ Bank
+                RACP MCQ Bank
               </span>
             </div>
             <p className="text-xs text-slate-500">
-              Basic Physician Training Clinical Question Portal
+              Divisional Written Examination Prep
             </p>
           </div>
         </Link>
@@ -83,7 +84,7 @@ export default function Navbar({ userEmail, userName }: NavbarProps) {
                 <p className="font-semibold text-slate-800">
                   {userName || "BPT Trainee"}
                 </p>
-                <p className="text-slate-500 max-w-[160px] truncate">
+                <p className="max-w-[160px] truncate text-slate-500">
                   {userEmail}
                 </p>
               </div>

@@ -99,10 +99,10 @@ export default function DashboardPage() {
         <div className="mb-8 flex flex-col justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:flex-row sm:items-center">
           <div>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-clinical-50 px-3 py-1 text-xs font-semibold text-clinical-700 ring-1 ring-inset ring-clinical-200">
-              RACP Basic Physician Training Analytics
+              Fracto · RACP Basic Physician Training Analytics
             </span>
             <h1 className="mt-2 text-2xl font-bold tracking-tight text-slate-900">
-              Trainee Performance Dashboard
+              Fracto Performance Dashboard
             </h1>
             <p className="mt-1 text-sm text-slate-600">
               Monitor your Divisional Written Examination readiness, specialty accuracy breakdown, and longitudinal score trajectory.
