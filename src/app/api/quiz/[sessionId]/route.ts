@@ -41,15 +41,37 @@ export async function GET(
       const q = questionMap.get(id);
       if (!q) return null;
       const attempt = attemptMap.get(id);
+
+      let optionsMap: Record<string, string> = {
+        A: q.optionA,
+        B: q.optionB,
+        C: q.optionC,
+        D: q.optionD,
+      };
+      if (q.questionType === "EMQ" && q.optionsJson) {
+        try {
+          const parsed = JSON.parse(q.optionsJson);
+          if (parsed && typeof parsed === "object") {
+            optionsMap = parsed as Record<string, string>;
+          }
+        } catch {
+          // fallback to A-D if malformed
+        }
+      }
+
       return {
         id: q.id,
         specialty: q.specialty,
+        questionType: q.questionType || "SBA",
+        emqGroupId: q.emqGroupId || null,
+        emqTheme: q.emqTheme || null,
         questionText: q.questionText,
         questionImageUrl: q.questionImageUrl,
         optionA: q.optionA,
         optionB: q.optionB,
         optionC: q.optionC,
         optionD: q.optionD,
+        optionsMap,
         // Reveal correctAnswer, explanation, and explanationImageUrl immediately if already answered
         correctAnswer: attempt ? q.correctAnswer : undefined,
         explanation: attempt ? q.explanation : undefined,
@@ -70,6 +92,7 @@ export async function GET(
       id: session.id,
       specialties: JSON.parse(session.specialties) as string[],
       filterMode: session.filterMode,
+      questionTypeFilter: session.questionTypeFilter || "all",
       totalQuestions: session.totalQuestions,
       completedAt: session.completedAt,
       createdAt: session.createdAt,

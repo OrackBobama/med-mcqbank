@@ -15,6 +15,8 @@ import {
   Clock,
   Award,
   Layers,
+  Calendar,
+  Settings,
 } from "lucide-react";
 
 interface SpecialtyBreakdownItem {
@@ -41,6 +43,12 @@ interface DashboardResponse {
     id: string;
     email: string;
     name: string | null;
+    trainingLevel?: string | null;
+    hospital?: string | null;
+    state?: string | null;
+    specialtyInterest?: string | null;
+    avatarUrl?: string | null;
+    examDate?: string | null;
   };
   summary: {
     overallAccuracy: number;
@@ -90,17 +98,50 @@ export default function DashboardPage() {
         )[0]
       : null;
 
+  // Compute Exam Countdown
+  const examCountdown = (() => {
+    const rawDate = data?.user.examDate;
+    if (!rawDate) return null;
+    const target = new Date(rawDate);
+    if (isNaN(target.getTime())) return null;
+    const now = new Date();
+    const diffDays = Math.ceil(
+      (target.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)
+    );
+    return {
+      diffDays,
+      formattedDate: target.toLocaleDateString("en-AU", {
+        weekday: "short",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }),
+    };
+  })();
+
   return (
     <div className="min-h-screen bg-slate-50 pb-16">
-      <Navbar userEmail={data?.user.email} userName={data?.user.name} />
+      <Navbar
+        userEmail={data?.user.email}
+        userName={data?.user.name}
+        userAvatar={data?.user.avatarUrl}
+      />
 
       <main className="mx-auto max-w-6xl px-4 pt-8 sm:px-6">
         {/* Welcome & Quick CTA Banner */}
-        <div className="mb-8 flex flex-col justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:flex-row sm:items-center">
+        <div className="mb-6 flex flex-col justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:flex-row sm:items-center">
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-clinical-50 px-3 py-1 text-xs font-semibold text-clinical-700 ring-1 ring-inset ring-clinical-200">
-              Fracto · RACP Basic Physician Training Analytics
-            </span>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-clinical-50 px-3 py-1 text-xs font-semibold text-clinical-700 ring-1 ring-inset ring-clinical-200">
+                Fracto · RACP Basic Physician Training Analytics
+              </span>
+              {data?.user.trainingLevel && (
+                <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-700">
+                  {data.user.trainingLevel}
+                  {data.user.hospital ? ` · ${data.user.hospital}` : ""}
+                </span>
+              )}
+            </div>
             <h1 className="mt-2 text-2xl font-bold tracking-tight text-slate-900">
               Fracto Performance Dashboard
             </h1>
@@ -117,6 +158,91 @@ export default function DashboardPage() {
             <span>Create Custom Quiz</span>
           </Link>
         </div>
+
+        {/* RACP Exam Date Countdown Widget or Prompt Banner */}
+        {!loading && data && (
+          <div className="mb-8">
+            {examCountdown ? (
+              <div className="flex flex-col justify-between gap-4 rounded-2xl border border-clinical-200 bg-gradient-to-r from-clinical-900 via-clinical-800 to-clinical-700 p-6 text-white shadow-sm sm:flex-row sm:items-center">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/15 text-white ring-1 ring-white/25">
+                    <Calendar className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <span className="inline-block rounded-md bg-white/15 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-clinical-100">
+                      RACP Divisional Written Examination Countdown
+                    </span>
+                    <h2 className="mt-1.5 text-xl font-extrabold tracking-tight sm:text-2xl">
+                      {examCountdown.diffDays > 0
+                        ? `${examCountdown.diffDays} Days Remaining Until Exam Day`
+                        : examCountdown.diffDays === 0
+                        ? "Examination Day is Today!"
+                        : `Exam Sitting Completed (${Math.abs(
+                            examCountdown.diffDays
+                          )} days ago)`}
+                    </h2>
+                    <p className="mt-0.5 text-xs text-clinical-100 sm:text-sm">
+                      Target Sitting Date:{" "}
+                      <strong className="font-semibold text-white">
+                        {examCountdown.formattedDate}
+                      </strong>{" "}
+                      · Remaining Unseen Bank Questions:{" "}
+                      <strong className="font-semibold text-white">
+                        {Math.max(
+                          0,
+                          data.summary.totalBankSize -
+                            data.summary.uniqueQuestionsAnswered
+                        )}
+                      </strong>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="hidden rounded-xl bg-white/10 px-4 py-2.5 text-center ring-1 ring-white/20 sm:block">
+                    <p className="text-2xl font-black leading-none text-white">
+                      {Math.max(0, examCountdown.diffDays)}
+                    </p>
+                    <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-clinical-100">
+                      Days Left
+                    </p>
+                  </div>
+                  <Link
+                    href="/settings#exam-date"
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-white px-4 py-2.5 text-xs font-bold text-clinical-900 shadow-sm transition hover:bg-clinical-50"
+                  >
+                    <Settings className="h-3.5 w-3.5" />
+                    <span>Update Exam Date</span>
+                  </Link>
+                </div>
+              </div>
+            ) : (
+              <div className="flex flex-col justify-between gap-4 rounded-2xl border border-dashed border-clinical-300 bg-clinical-50/50 p-5 sm:flex-row sm:items-center">
+                <div className="flex items-center gap-3.5">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-clinical-700 text-white shadow-sm">
+                    <Calendar className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h2 className="text-sm font-bold text-slate-900 sm:text-base">
+                      Set Your RACP Divisional Written Examination Date
+                    </h2>
+                    <p className="text-xs text-slate-600">
+                      Configure your target sitting date in Settings to display a live exam countdown timer on your dashboard.
+                    </p>
+                  </div>
+                </div>
+                <Link
+                  href="/settings#exam-date"
+                  className="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-clinical-700 px-4 py-2.5 text-xs font-bold text-white shadow-sm transition hover:bg-clinical-800"
+                >
+                  <Calendar className="h-3.5 w-3.5" />
+                  <span>Set Exam Date in Settings</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            )}
+          </div>
+        )}
 
         {loading || !data ? (
           <div className="rounded-2xl border border-slate-200 bg-white p-12 text-center shadow-sm">
@@ -164,7 +290,7 @@ export default function DashboardPage() {
                   </span>
                 </p>
                 <p className="mt-1 text-xs text-slate-500">
-                  Unique RACP vignettes attempted
+                  Unique RACP vignettes (SBA &amp; EMQ) attempted
                 </p>
               </div>
 
@@ -268,7 +394,9 @@ export default function DashboardPage() {
                         <div className="h-2.5 w-full overflow-hidden rounded-full bg-slate-100">
                           <div
                             className={`h-full rounded-full transition-all duration-500 ${barColor}`}
-                            style={{ width: `${hasAttempts ? Math.max(acc, 4) : 0}%` }}
+                            style={{
+                              width: `${hasAttempts ? Math.max(acc, 4) : 0}%`,
+                            }}
                           />
                         </div>
                       </div>
@@ -320,7 +448,7 @@ export default function DashboardPage() {
                     href="/quiz/new"
                     className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-clinical-700 hover:underline"
                   >
-                    <span>Generate your first custom RACP quiz</span>
+                    <span>Generate your first custom Fracto quiz</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
@@ -344,7 +472,7 @@ export default function DashboardPage() {
 
                         return (
                           <tr key={sess.id} className="hover:bg-slate-50/80">
-                            <td className="py-3.5 pr-4 whitespace-nowrap text-xs text-slate-600">
+                            <td className="whitespace-nowrap py-3.5 pr-4 text-xs text-slate-600">
                               {new Date(sess.createdAt).toLocaleString([], {
                                 dateStyle: "medium",
                                 timeStyle: "short",
@@ -362,11 +490,11 @@ export default function DashboardPage() {
                                 ))}
                               </div>
                             </td>
-                            <td className="py-3.5 pr-4 whitespace-nowrap text-xs font-medium text-slate-700">
+                            <td className="whitespace-nowrap py-3.5 pr-4 text-xs font-medium text-slate-700">
                               {sess.answeredCount} / {sess.totalQuestions}{" "}
                               questions
                             </td>
-                            <td className="py-3.5 pr-4 whitespace-nowrap">
+                            <td className="whitespace-nowrap py-3.5 pr-4">
                               {sess.accuracy !== null ? (
                                 <span
                                   className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-bold ${
@@ -386,7 +514,7 @@ export default function DashboardPage() {
                                 </span>
                               )}
                             </td>
-                            <td className="py-3.5 text-right whitespace-nowrap">
+                            <td className="whitespace-nowrap py-3.5 text-right">
                               <Link
                                 href={`/quiz/${sess.id}`}
                                 className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-clinical-700 shadow-sm transition hover:bg-clinical-50"

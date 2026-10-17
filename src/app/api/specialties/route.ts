@@ -12,6 +12,7 @@ export async function GET() {
     select: {
       id: true,
       specialty: true,
+      questionType: true,
     },
   });
 
@@ -37,6 +38,8 @@ export async function GET() {
     {
       specialty: string;
       totalQuestions: number;
+      sbaCount: number;
+      emqCount: number;
       newCount: number;
       incorrectCount: number;
       newAndIncorrectCount: number;
@@ -45,10 +48,15 @@ export async function GET() {
     }
   >();
 
+  let totalSbaCount = 0;
+  let totalEmqCount = 0;
+
   for (const q of questions) {
     const entry = specialtyMap.get(q.specialty) || {
       specialty: q.specialty,
       totalQuestions: 0,
+      sbaCount: 0,
+      emqCount: 0,
       newCount: 0,
       incorrectCount: 0,
       newAndIncorrectCount: 0,
@@ -56,6 +64,13 @@ export async function GET() {
       correctCount: 0,
     };
     entry.totalQuestions += 1;
+    if (q.questionType === "EMQ") {
+      entry.emqCount += 1;
+      totalEmqCount += 1;
+    } else {
+      entry.sbaCount += 1;
+      totalSbaCount += 1;
+    }
 
     const latestStatus = latestAttemptByQuestion.get(q.id);
     if (latestStatus === undefined) {
@@ -93,5 +108,7 @@ export async function GET() {
   return NextResponse.json({
     specialties,
     totalBankSize: questions.length,
+    totalSbaCount,
+    totalEmqCount,
   });
 }

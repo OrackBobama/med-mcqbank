@@ -8,6 +8,8 @@ export type QuizFilterMode =
   | "incorrect"
   | "new_and_incorrect";
 
+export type QuestionTypeFilter = "all" | "SBA" | "EMQ";
+
 export async function POST(req: NextRequest) {
   try {
     const user = await getAuthenticatedUser();
@@ -31,6 +33,14 @@ export async function POST(req: NextRequest) {
       ? (rawFilterMode as QuizFilterMode)
       : "all";
 
+    const rawTypeFilter = String(body.questionTypeFilter || "all").trim();
+    const validTypeFilters = new Set(["all", "SBA", "EMQ"]);
+    const questionTypeFilter: QuestionTypeFilter = validTypeFilters.has(
+      rawTypeFilter
+    )
+      ? (rawTypeFilter as QuestionTypeFilter)
+      : "all";
+
     if (specialties.length === 0) {
       return NextResponse.json(
         { error: "Please select at least one medical specialty." },
@@ -41,13 +51,22 @@ export async function POST(req: NextRequest) {
     const matchingQuestions = await prisma.question.findMany({
       where: {
         specialty: { in: specialties },
+        ...(questionTypeFilter !== "all"
+          ? { questionType: questionTypeFilter }
+          : {}),
       },
-      select: { id: true, questionImageUrl: true },
+      select: {
+        id: true,
+        questionImageUrl: true,
+        questionType: true,
+        emqGroupId: true,
+      },
+      orderBy: { id: "asc" },
     });
 
     if (matchingQuestions.length === 0) {
       return NextResponse.json(
-        { error: "No questions found for the selected specialties." },
+        { error: "No questions found for the selected specialties and format." },
         { status: 404 }
       );
     }
@@ -82,32 +101,57 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         {
           error:
-            "No questions match the selected question pool filter and specialties.",
+            "No questions match the selected question pool filter, format, and specialties.",
         },
         { status: 404 }
       );
     }
 
-    // Fisher-Yates shuffle, prioritizing questions with embedded clinical images first when available so trainees immediately see visual vignettes
-    const shuffled = [...filteredQuestions];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    // Group EMQ questions by emqGroupId so linked stems stay together in order
+    type QuestionItem = (typeof filteredQuestions)[number];
+    const blocks: QuestionItem[][] = [];
+    const emqGroupMap = new Map<string, QuestionItem[]>();
+
+    for (const q of filteredQuestions) {
+      if (q.questionType === "EMQ" && q.emqGroupId) {
+        const list = emqGroupMap.get(q.emqGroupId) || [];
+        list.push(q);
+        emqGroupMap.set(q.emqGroupId, list);
+      } else {
+        blocks.push([q]);
+      }
     }
-    shuffled.sort((a, b) => {
-      const aHasImg = a.questionImageUrl ? 1 : 0;
-      const bHasImg = b.questionImageUrl ? 1 : 0;
-      return bHasImg - aHasImg;
+
+    Array.from(emqGroupMap.values()).forEach((groupItems) => {
+      groupItems.sort((a, b) => a.id.localeCompare(b.id));
+      blocks.push(groupItems);
     });
 
-    const count = Math.max(1, Math.min(requestedCount, shuffled.length));
-    const selectedIds = shuffled.slice(0, count).map((q) => q.id);
+    // Fisher-Yates shuffle of blocks
+    for (let i = blocks.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [blocks[i], blocks[j]] = [blocks[j], blocks[i]];
+    }
+
+    // Prioritize blocks with embedded clinical images when questionTypeFilter is not strictly EMQ
+    if (questionTypeFilter !== "EMQ") {
+      blocks.sort((a, b) => {
+        const aHasImg = a.some((q) => q.questionImageUrl) ? 1 : 0;
+        const bHasImg = b.some((q) => q.questionImageUrl) ? 1 : 0;
+        return bHasImg - aHasImg;
+      });
+    }
+
+    const flattened = blocks.flat();
+    const count = Math.max(1, Math.min(requestedCount, flattened.length));
+    const selectedIds = flattened.slice(0, count).map((q) => q.id);
 
     const quizSession = await prisma.quizSession.create({
       data: {
         userId: user.id,
         specialties: JSON.stringify(specialties),
         filterMode,
+        questionTypeFilter,
         questionIds: JSON.stringify(selectedIds),
         totalQuestions: selectedIds.length,
       },
@@ -117,6 +161,7 @@ export async function POST(req: NextRequest) {
       sessionId: quizSession.id,
       totalQuestions: quizSession.totalQuestions,
       filterMode: quizSession.filterMode,
+      questionTypeFilter: quizSession.questionTypeFilter,
     });
   } catch (err) {
     console.error("[quiz/create] Error:", err);

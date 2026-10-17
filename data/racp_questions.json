@@ -10,7 +10,11 @@
     "correctAnswer": "B",
     "explanation": "This patient has symptomatic severe high-gradient aortic stenosis (peak velocity >= 4.0 m/s, mean gradient >= 40 mmHg, valve area < 1.0 cm²). Symptomatic severe aortic stenosis carries a dismal prognosis without valve intervention (average survival 2-3 years after syncope or heart failure onset). Definitive aortic valve replacement (surgical AVR or transcatheter aortic valve implantation [TAVI] depending on surgical risk and Heart Team assessment) is a Class I indication. Medical therapy does not slow disease progression, and balloon valvuloplasty alone provides only transient haemodynamic relief with high restenosis rates.",
     "questionImageUrl": "data/images/aortic_stenosis_doppler.svg",
-    "explanationImageUrl": "data/images/aortic_stenosis_doppler.svg"
+    "explanationImageUrl": "data/images/aortic_stenosis_doppler.svg",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-CARD-002",
@@ -23,7 +27,11 @@
     "correctAnswer": "C",
     "explanation": "The ECG demonstrates a spontaneous Type 1 Brugada pattern (>= 2 mm coved ST-segment elevation followed by a negative T wave in right precordial leads V1-V2), diagnostic of Brugada syndrome in the context of family history of sudden cardiac death. Loss-of-function mutations in SCN5A, encoding the alpha-subunit of the cardiac sodium channel (Nav1.5), are the most common genetic cause (found in 20-30% of probands). KCNQ1 mutations cause LQT1, RYR2 mutations cause catecholaminergic polymorphic ventricular tachycardia (CPVT), and MYH7 mutations cause hypertrophic cardiomyopathy.",
     "questionImageUrl": "data/images/brugada_ecg.svg",
-    "explanationImageUrl": "data/images/brugada_channelopathy.svg"
+    "explanationImageUrl": "data/images/brugada_channelopathy.svg",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-CARD-003",
@@ -36,7 +44,11 @@
     "correctAnswer": "A",
     "explanation": "Sodium-glucose co-transporter 2 (SGLT2) inhibitors such as dapagliflozin (DAPA-HF trial) and empagliflozin (EMPEROR-Reduced trial) significantly reduce the composite endpoint of cardiovascular mortality and worsening heart failure hospitalisation in patients with HFrEF (LVEF <= 40%), completely independent of diabetes status. They represent one of the four foundational pillars of guideline-directed medical therapy (ARNI/ACEi, beta-blocker, MRA, and SGLT2 inhibitor).",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-CARD-004",
@@ -49,7 +61,11 @@
     "correctAnswer": "D",
     "explanation": "The Australian NHFA/CSANZ guidelines use the sexless CHA2DS2-VA score. This patient receives 1 point for age 65-74 years, 1 point for hypertension, and 1 point for diabetes mellitus, giving a CHA2DS2-VA score of 3. A CHA2DS2-VA score >= 2 is a strong (Class I) indication for oral anticoagulation, with a direct oral anticoagulant (DOAC such as apixaban, rivaroxaban, or dabigatran) preferred over warfarin in non-valvular AF.",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-CARD-005",
@@ -62,7 +78,11 @@
     "correctAnswer": "B",
     "explanation": "First-line oral antihypertensive agents safe in pregnancy include labetalol (alpha/beta-blocker), methyldopa, and long-acting nifedipine. ACE inhibitors (perindopril) and angiotensin receptor blockers (irbesartan) are strictly contraindicated in pregnancy due to fetotoxicity (renal dysgenesis, oligohydramnios, skull hypoplasia, and intrauterine growth restriction). Spironolactone is avoided due to anti-androgenic effects on a male fetus.",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-GAST-001",
@@ -75,7 +95,11 @@
     "correctAnswer": "B",
     "explanation": "By the Oxford (Travis) criteria on Day 3 of IV corticosteroid therapy, a stool frequency > 8/day or 3-8/day with CRP > 45 mg/L predicts an 85% likelihood of requiring colectomy during that admission if steroids are continued alone. Prompt initiation of medical rescue therapy with either infliximab or ciclosporin (which have comparable short-term efficacy in the CONSTRUCT and CYSIF trials), coupled with joint medical-surgical review, is essential.",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-GAST-002",
@@ -88,7 +112,11 @@
     "correctAnswer": "A",
     "explanation": "An ascitic fluid PMN count >= 250 cells/mm³ confirms spontaneous bacterial peritonitis (SBP). In patients with SBP, intravenous 20% concentrated albumin (1.5 g/kg within 6 hours of diagnosis and 1.0 g/kg on day 3, per Sort et al. NEJM) significantly decreases the incidence of type 1 hepatorenal syndrome (from 30% to 10%) and lowers inpatient mortality (from 29% to 10%). Non-selective beta-blockers and diuretics should be withheld during acute SBP with renal dysfunction.",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-GAST-003",
@@ -101,7 +129,11 @@
     "correctAnswer": "B",
     "explanation": "This middle-aged woman has a chronic intrahepatic cholestatic liver profile (markedly elevated ALP and GGT with normal extrahepatic bile ducts on ultrasound) and pruritus, classic for Primary Biliary Cholangitis (PBC). Anti-mitochondrial antibodies (AMA), specifically targeting the E2 subunit of the pyruvate dehydrogenase complex (PDC-E2 / M2 antigen), are present in 90-95% of patients with PBC and have >95% specificity. First-line therapy is ursodeoxycholic acid (UDCA) 13-15 mg/kg/day.",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-GAST-004",
@@ -114,7 +146,11 @@
     "correctAnswer": "B",
     "explanation": "In C282Y homozygous hereditary haemochromatosis with elevated iron indices (ferritin > 300 ug/L in men and transferrin saturation > 45%), weekly or fortnightly therapeutic venesection (removing ~450-500 mL blood, ~250 mg iron per unit) is first-line treatment to prevent hepatic fibrosis, cirrhosis, arthropathy, and diabetes. The induction target is a serum ferritin of 50-100 ug/L.",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-GAST-005",
@@ -127,7 +163,11 @@
     "correctAnswer": "A",
     "explanation": "International and Australian consensus guidelines (AASLD, EASL, GESA) recommend 6-monthly abdominal ultrasound, with or without serum alpha-fetoprotein (AFP), for HCC surveillance in all patients with cirrhosis (Child-Pugh A and B, or Child-Pugh C awaiting liver transplantation) as well as high-risk non-cirrhotic chronic hepatitis B carriers. Combining ultrasound with AFP increases sensitivity for early-stage HCC detection compared with ultrasound alone.",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-RESP-001",
@@ -140,7 +180,11 @@
     "correctAnswer": "B",
     "explanation": "In acute exacerbations of COPD complicated by acute or acute-on-chronic hypercapnic respiratory acidosis (pH 7.25–7.35 and PaCO2 > 45 mmHg) persisting despite optimal medical therapy and controlled oxygen targeting SpO2 88-92%, bilevel non-invasive ventilation (NIV) is strongly indicated (Number Needed to Treat ~10 to prevent mortality and ~4 to prevent intubation).",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-RESP-002",
@@ -153,7 +197,11 @@
     "correctAnswer": "B",
     "explanation": "This patient has classic clinical and HRCT features (definite Usual Interstitial Pneumonia [UIP] pattern: basal/subpleural predominance, honeycombing, traction bronchiectasis) of Idiopathic Pulmonary Fibrosis (IPF). Antifibrotic therapy with nintedanib (an intracellular tyrosine kinase inhibitor targeting FGFR, PDGFR, VEGFR; INPULSIS trials) or pirfenidone (ASCEND/CAPACITY trials) reduces the rate of FVC decline by approximately 50%. Combination prednisolone + azathioprine + NAC (PANTHER-IPF trial) increased mortality and hospitalisations in IPF and is contraindicated.",
     "questionImageUrl": "data/images/ipf_hrct_uip.svg",
-    "explanationImageUrl": "data/images/ipf_hrct_uip.svg"
+    "explanationImageUrl": "data/images/ipf_hrct_uip.svg",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-RESP-003",
@@ -166,7 +214,11 @@
     "correctAnswer": "B",
     "explanation": "Light's criteria classify a pleural effusion as an exudate if at least ONE of the following three criteria is met: (1) Pleural fluid protein / Serum protein ratio > 0.5; (2) Pleural fluid LDH / Serum LDH ratio > 0.6; (3) Pleural fluid LDH > 2/3 (0.67) of the laboratory upper limit of normal for serum LDH. Here, the protein ratio is 38 / 68 = 0.56 (> 0.5) and the LDH ratio is 190 / 260 = 0.73 (> 0.6), clearly classifying the effusion as an exudate.",
     "questionImageUrl": "",
-    "explanationImageUrl": "data/images/lights_criteria.svg"
+    "explanationImageUrl": "data/images/lights_criteria.svg",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-RESP-004",
@@ -179,7 +231,11 @@
     "correctAnswer": "B",
     "explanation": "This patient has Löfgren syndrome, an acute presentation of Stage I pulmonary sarcoidosis characterised by erythema nodosum, bilateral hilar lymphadenopathy, and migratory polyarthralgia. Löfgren syndrome carries an excellent prognosis with spontaneous remission occurring in >80-85% of patients within 1-2 years. In the absence of vital organ involvement (cardiac, neurological, ocular, hypercalcaemia, or progressive pulmonary impairment), observation and NSAIDs for joint/skin discomfort are appropriate rather than systemic corticosteroids.",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-RESP-005",
@@ -192,7 +248,11 @@
     "correctAnswer": "A",
     "explanation": "For a solid, spiculated pulmonary nodule > 8-10 mm in a high-risk patient, 18F-FDG PET-CT is the standard staging modality to characterise metabolic activity of the primary lesion and evaluate for occult hilar/mediastinal nodal or distant metastases prior to tissue biopsy and anatomical surgical resection.",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-NEUR-001",
@@ -205,7 +265,11 @@
     "correctAnswer": "B",
     "explanation": "In Guillain-Barré syndrome (acute inflammatory demyelinating polyradiculoneuropathy), neuromuscular respiratory failure occurs in up to 20-30% of patients. Serial bedside Forced Vital Capacity (FVC) (along with Negative Inspiratory Force / Maximal Inspiratory Pressure) is the gold-standard physiological marker. By the '20/30/40 rule', an FVC < 20 mL/kg (or a >30% drop in FVC), MIP worse than -30 cmH2O, or MEP < 40 cmH2O indicates impending respiratory failure and the need for elective ICU intubation. Pulse oximetry and hypercapnia are late signs.",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-NEUR-002",
@@ -218,7 +282,11 @@
     "correctAnswer": "B",
     "explanation": "This patient has Giant Cell Arteritis (GCA / temporal arteritis) complicated by transient visual ischaemia (amaurosis fugax), which is a medical emergency carrying a high risk of permanent, irreversible bilateral blindness from anterior ischaemic optic neuropathy. Immediate high-dose intravenous methylprednisolone (500–1000 mg IV daily for 3 days followed by high-dose oral prednisolone) must be commenced without waiting for temporal artery biopsy or vascular ultrasound. Biopsy remains diagnostic within 1-2 weeks of starting steroids.",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-NEUR-003",
@@ -231,7 +299,11 @@
     "correctAnswer": "B",
     "explanation": "Proximal lower limb weakness, autonomic dysfunction (dry mouth), hyporeflexia, and post-exercise facilitation (improvement in strength and reflexes following brief maximal contraction) are classic clinical hallmarks of Lambert-Eaton Myasthenic Syndrome (LEMS). Over 85-90% of patients with LEMS harbour autoantibodies against pre-synaptic P/Q-type voltage-gated calcium channels (VGCC), impairing calcium-dependent acetylcholine vesicle release. Approximately 50-60% of cases are paraneoplastic, associated with small-cell lung carcinoma (SCLC).",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-NEUR-004",
@@ -244,7 +316,11 @@
     "correctAnswer": "A",
     "explanation": "Enteral nimodipine (60 mg every 4 hours for 21 days), a lipophilic dihydropyridine calcium channel blocker, is the only proven pharmacological intervention (Class I, Level A evidence) shown to reduce the risk of delayed cerebral ischaemia (vasospasm-related infarction) and poor neurological outcome after aneurysmal subarachnoid haemorrhage.",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-NEUR-005",
@@ -257,7 +333,11 @@
     "correctAnswer": "B",
     "explanation": "Natalizumab blocks alpha-4 integrin (VLA-4)-mediated lymphocyte trafficking across the blood-brain barrier and carries a known risk of Progressive Multifocal Leukoencephalopathy (PML), an opportunistic demyelinating brain infection caused by reactivation of latent John Cunningham (JC) polyomavirus. Risk stratification requires anti-JCV antibody status and index testing, assessment of prior immunosuppressant exposure, and treatment duration (>24 months).",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-ID-001",
@@ -270,7 +350,11 @@
     "correctAnswer": "B",
     "explanation": "In HIV-associated cryptococcal meningitis, the COAT trial (Boulware et al., NEJM) demonstrated that early ART initiation (within 1-2 weeks of antifungal diagnosis) significantly increased 26-week mortality compared with deferred ART initiation (at 4-6 weeks), largely driven by fatal central nervous system Cryptococcal Immune Reconstitution Inflammatory Syndrome (CNS-IRIS) in a closed cranial vault. Routine adjunctive dexamethasone was also shown in the CryptoDex trial to increase disability and slow fungal clearance.",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-ID-002",
@@ -283,7 +367,11 @@
     "correctAnswer": "B",
     "explanation": "This presentation (wet season in northern Australia, diabetes/excess alcohol risk factors, pneumonia with visceral splenic/prostatic abscesses, oxidase-positive Gram-negative rod with bipolar staining and intrinsic resistance to aminoglycosides and polymyxins) is classic for melioidosis caused by Burkholderia pseudomallei. Treatment requires at least 2–4 weeks of intensive intravenous therapy with meropenem (preferred in severe sepsis/ICU or neurological involvement) or ceftazidime, followed by a minimum of 3 months of eradication therapy with high-dose oral trimethoprim-sulfamethoxazole.",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-ID-003",
@@ -296,7 +384,11 @@
     "correctAnswer": "B",
     "explanation": "Febrile neutropenia (temperature >= 38.3°C or >= 38.0°C sustained over 1 hour with ANC < 0.5 x 10⁹/L) is a medical emergency requiring anti-pseudomonal beta-lactam administration within 60 minutes of presentation. In haemodynamically stable patients without penicillin allergy or MRSA risk factors, empirical monotherapy with an antipseudomonal beta-lactam such as piperacillin-tazobactam or cefepime is first-line. Ceftriaxone lacks Pseudomonas aeruginosa activity and is inadequate.",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-ID-004",
@@ -309,7 +401,11 @@
     "correctAnswer": "B",
     "explanation": "Oral vancomycin (125 mg four times daily for 10 days) or oral fidaxomicin (200 mg twice daily for 10 days) are superior to metronidazole for achieving sustained clinical resolution and reducing recurrence in Clostridioides difficile infection. Note that intravenous vancomycin is not excreted into the colonic lumen and is ineffective for C. difficile colitis.",
     "questionImageUrl": "",
-    "explanationImageUrl": ""
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
   },
   {
     "id": "RACP-ID-005",
@@ -322,6 +418,265 @@
     "correctAnswer": "A",
     "explanation": "Bacteraemia or infective endocarditis caused by Streptococcus gallolyticus subsp. gallolyticus (formerly Streptococcus bovis biotype I) has a well-established association (25–80% of cases) with underlying colonic adenomas or colorectal carcinoma. All patients with S. gallolyticus bacteraemia or endocarditis must undergo full colonoscopy to exclude occult colonic malignancy.",
     "questionImageUrl": "",
+    "explanationImageUrl": "",
+    "questionType": "SBA",
+    "emqGroupId": "",
+    "emqTheme": "",
+    "optionsJson": ""
+  },
+  {
+    "id": "RACP-EMQ-CARD-001",
+    "questionType": "EMQ",
+    "emqGroupId": "RACP-EMQ-CARD-01",
+    "emqTheme": "Definitive Cardiovascular Interventions & Pharmacotherapy (Options A–J)",
+    "specialty": "Cardiology",
+    "questionText": "Stem 1 of 3: A 36-year-old man survives an out-of-hospital ventricular fibrillation cardiac arrest while sleeping. Restoring sinus rhythm reveals a spontaneous Type 1 coved ST-segment elevation of 3.5 mm in leads V1–V2. Coronary angiography and cardiac MRI are structurally normal. Select the most appropriate long-term intervention from the 10 options below.",
+    "questionImageUrl": "data/images/brugada_ecg.svg",
+    "optionA": "Intravenous atropine 600 mcg bolus",
+    "optionB": "Oral dapagliflozin 10 mg daily",
+    "optionC": "Implantable cardioverter-defibrillator (ICD) insertion",
+    "optionD": "Urgent surgical or transcatheter aortic valve replacement (AVR / TAVI)",
+    "optionsJson": "{\"A\":\"Intravenous atropine 600 mcg bolus\",\"B\":\"Oral dapagliflozin 10 mg daily\",\"C\":\"Implantable cardioverter-defibrillator (ICD) insertion\",\"D\":\"Urgent surgical or transcatheter aortic valve replacement (AVR / TAVI)\",\"E\":\"Oral labetalol 100 mg BD\",\"F\":\"Intravenous amiodarone 300 mg infusion\",\"G\":\"Oral apixaban 5 mg BD\",\"H\":\"Immediate electrical cardioversion\",\"I\":\"Oral ivabradine 5 mg BD\",\"J\":\"Urgent pericardiocentesis\"}",
+    "correctAnswer": "C",
+    "explanation": "In Brugada syndrome survivors of aborted sudden cardiac arrest or patients with spontaneous Type 1 ECG and arrhythmic syncope, secondary prevention with an implantable cardioverter-defibrillator (ICD, Option C) is a Class I indication.",
+    "explanationImageUrl": "data/images/brugada_channelopathy.svg"
+  },
+  {
+    "id": "RACP-EMQ-CARD-002",
+    "questionType": "EMQ",
+    "emqGroupId": "RACP-EMQ-CARD-01",
+    "emqTheme": "Definitive Cardiovascular Interventions & Pharmacotherapy (Options A–J)",
+    "specialty": "Cardiology",
+    "questionText": "Stem 2 of 3: A 66-year-old woman with NYHA Class II heart failure (LVEF 32%) is in sinus rhythm at 78 bpm on maximum tolerated sacubitril/valsartan, carvedilol 25 mg BD, and spironolactone 25 mg daily. Her HbA1c is 5.3% and eGFR is 58 mL/min/1.73m². Select the agent from Options A–J that provides a Class I mortality and heart failure hospitalisation benefit.",
+    "questionImageUrl": "",
+    "optionA": "Intravenous atropine 600 mcg bolus",
+    "optionB": "Oral dapagliflozin 10 mg daily",
+    "optionC": "Implantable cardioverter-defibrillator (ICD) insertion",
+    "optionD": "Urgent surgical or transcatheter aortic valve replacement (AVR / TAVI)",
+    "optionsJson": "{\"A\":\"Intravenous atropine 600 mcg bolus\",\"B\":\"Oral dapagliflozin 10 mg daily\",\"C\":\"Implantable cardioverter-defibrillator (ICD) insertion\",\"D\":\"Urgent surgical or transcatheter aortic valve replacement (AVR / TAVI)\",\"E\":\"Oral labetalol 100 mg BD\",\"F\":\"Intravenous amiodarone 300 mg infusion\",\"G\":\"Oral apixaban 5 mg BD\",\"H\":\"Immediate electrical cardioversion\",\"I\":\"Oral ivabradine 5 mg BD\",\"J\":\"Urgent pericardiocentesis\"}",
+    "correctAnswer": "B",
+    "explanation": "Dapagliflozin 10 mg daily (Option B) is an SGLT2 inhibitor proven in DAPA-HF to reduce cardiovascular death and worsening heart failure hospitalisations in HFrEF regardless of diabetes status.",
+    "explanationImageUrl": ""
+  },
+  {
+    "id": "RACP-EMQ-CARD-003",
+    "questionType": "EMQ",
+    "emqGroupId": "RACP-EMQ-CARD-01",
+    "emqTheme": "Definitive Cardiovascular Interventions & Pharmacotherapy (Options A–J)",
+    "specialty": "Cardiology",
+    "questionText": "Stem 3 of 3: A 58-year-old man with metastatic lung cancer presents with severe dyspnoea, muffled heart sounds, distended jugular veins, blood pressure 84/56 mmHg, and pulsus paradoxus of 22 mmHg. Bedside echocardiography shows a large circumferential pericardial effusion with right ventricular diastolic collapse. Select the most urgent life-saving intervention from Options A–J.",
+    "questionImageUrl": "",
+    "optionA": "Intravenous atropine 600 mcg bolus",
+    "optionB": "Oral dapagliflozin 10 mg daily",
+    "optionC": "Implantable cardioverter-defibrillator (ICD) insertion",
+    "optionD": "Urgent surgical or transcatheter aortic valve replacement (AVR / TAVI)",
+    "optionsJson": "{\"A\":\"Intravenous atropine 600 mcg bolus\",\"B\":\"Oral dapagliflozin 10 mg daily\",\"C\":\"Implantable cardioverter-defibrillator (ICD) insertion\",\"D\":\"Urgent surgical or transcatheter aortic valve replacement (AVR / TAVI)\",\"E\":\"Oral labetalol 100 mg BD\",\"F\":\"Intravenous amiodarone 300 mg infusion\",\"G\":\"Oral apixaban 5 mg BD\",\"H\":\"Immediate electrical cardioversion\",\"I\":\"Oral ivabradine 5 mg BD\",\"J\":\"Urgent pericardiocentesis\"}",
+    "correctAnswer": "J",
+    "explanation": "Clinical and echocardiographic cardiac tamponade (hypotension, elevated JVP, pulsus paradoxus > 10 mmHg, and RV diastolic collapse) requires urgent pericardiocentesis (Option J) to restore ventricular filling and cardiac output.",
+    "explanationImageUrl": ""
+  },
+  {
+    "id": "RACP-EMQ-GAST-001",
+    "questionType": "EMQ",
+    "emqGroupId": "RACP-EMQ-GAST-01",
+    "emqTheme": "Hepatobiliary & Luminal Gastroenterology Management (Options A–J)",
+    "specialty": "Gastroenterology",
+    "questionText": "Stem 1 of 3: A 54-year-old man with Child-Pugh C alcoholic cirrhosis presents with fever and abdominal pain. Ascitic tap shows a polymorphonuclear count of 680 cells/mm³ and serum creatinine is 132 umol/L. Select the optimal treatment regimen from Options A–J that prevents type 1 hepatorenal syndrome and reduces mortality.",
+    "questionImageUrl": "",
+    "optionA": "Intravenous concentrated 20% albumin (1.5 g/kg day 1, 1.0 g/kg day 3) plus ceftriaxone",
+    "optionB": "Rescue medical therapy with intravenous infliximab (5 mg/kg) or ciclosporin",
+    "optionC": "Oral ursodeoxycholic acid (UDCA) 13–15 mg/kg/day",
+    "optionD": "Regular therapeutic venesection aiming for serum ferritin 50–100 ug/L",
+    "optionsJson": "{\"A\":\"Intravenous concentrated 20% albumin (1.5 g/kg day 1, 1.0 g/kg day 3) plus ceftriaxone\",\"B\":\"Rescue medical therapy with intravenous infliximab (5 mg/kg) or ciclosporin\",\"C\":\"Oral ursodeoxycholic acid (UDCA) 13–15 mg/kg/day\",\"D\":\"Regular therapeutic venesection aiming for serum ferritin 50–100 ug/L\",\"E\":\"6-monthly hepatobiliary ultrasound with serum alpha-fetoprotein (AFP)\",\"F\":\"Endoscopic variceal band ligation plus intravenous terlipressin\",\"G\":\"Oral prednisolone 40 mg daily tapered over 4 weeks plus azathioprine\",\"H\":\"Transjugular intrahepatic portosystemic shunt (TIPS) insertion\",\"I\":\"Oral vancomycin 125 mg QID for 10 days\",\"J\":\"High-dose intravenous proton pump inhibitor infusion following endoscopic haemostasis\"}",
+    "correctAnswer": "A",
+    "explanation": "Spontaneous bacterial peritonitis (ascitic PMN >= 250 cells/mm³) complicated by renal dysfunction or hyperbilirubinaemia requires intravenous third-generation cephalosporin (ceftriaxone) plus concentrated 20% IV albumin (1.5 g/kg on day 1 and 1.0 g/kg on day 3, Option A).",
+    "explanationImageUrl": ""
+  },
+  {
+    "id": "RACP-EMQ-GAST-002",
+    "questionType": "EMQ",
+    "emqGroupId": "RACP-EMQ-GAST-01",
+    "emqTheme": "Hepatobiliary & Luminal Gastroenterology Management (Options A–J)",
+    "specialty": "Gastroenterology",
+    "questionText": "Stem 2 of 3: A 49-year-old woman with chronic pruritus, ALP 390 U/L, GGT 310 U/L, normal bile ducts on ultrasound, and strongly positive anti-mitochondrial antibodies (AMA-M2) is diagnosed with Primary Biliary Cholangitis. Select the first-line disease-modifying therapy from Options A–J.",
+    "questionImageUrl": "",
+    "optionA": "Intravenous concentrated 20% albumin (1.5 g/kg day 1, 1.0 g/kg day 3) plus ceftriaxone",
+    "optionB": "Rescue medical therapy with intravenous infliximab (5 mg/kg) or ciclosporin",
+    "optionC": "Oral ursodeoxycholic acid (UDCA) 13–15 mg/kg/day",
+    "optionD": "Regular therapeutic venesection aiming for serum ferritin 50–100 ug/L",
+    "optionsJson": "{\"A\":\"Intravenous concentrated 20% albumin (1.5 g/kg day 1, 1.0 g/kg day 3) plus ceftriaxone\",\"B\":\"Rescue medical therapy with intravenous infliximab (5 mg/kg) or ciclosporin\",\"C\":\"Oral ursodeoxycholic acid (UDCA) 13–15 mg/kg/day\",\"D\":\"Regular therapeutic venesection aiming for serum ferritin 50–100 ug/L\",\"E\":\"6-monthly hepatobiliary ultrasound with serum alpha-fetoprotein (AFP)\",\"F\":\"Endoscopic variceal band ligation plus intravenous terlipressin\",\"G\":\"Oral prednisolone 40 mg daily tapered over 4 weeks plus azathioprine\",\"H\":\"Transjugular intrahepatic portosystemic shunt (TIPS) insertion\",\"I\":\"Oral vancomycin 125 mg QID for 10 days\",\"J\":\"High-dose intravenous proton pump inhibitor infusion following endoscopic haemostasis\"}",
+    "correctAnswer": "C",
+    "explanation": "Oral ursodeoxycholic acid (UDCA) at 13–15 mg/kg/day (Option C) is first-line therapy for Primary Biliary Cholangitis (PBC), improving biochemical cholestasis and transplant-free survival.",
+    "explanationImageUrl": ""
+  },
+  {
+    "id": "RACP-EMQ-GAST-003",
+    "questionType": "EMQ",
+    "emqGroupId": "RACP-EMQ-GAST-01",
+    "emqTheme": "Hepatobiliary & Luminal Gastroenterology Management (Options A–J)",
+    "specialty": "Gastroenterology",
+    "questionText": "Stem 3 of 3: A 31-year-old woman with acute severe ulcerative colitis continues to pass 9 bloody stools per day with a CRP of 58 mg/L on Day 3 of intravenous hydrocortisone 100 mg QID. CMV PCR and C. difficile toxin are negative. Select the appropriate rescue therapy from Options A–J.",
+    "questionImageUrl": "",
+    "optionA": "Intravenous concentrated 20% albumin (1.5 g/kg day 1, 1.0 g/kg day 3) plus ceftriaxone",
+    "optionB": "Rescue medical therapy with intravenous infliximab (5 mg/kg) or ciclosporin",
+    "optionC": "Oral ursodeoxycholic acid (UDCA) 13–15 mg/kg/day",
+    "optionD": "Regular therapeutic venesection aiming for serum ferritin 50–100 ug/L",
+    "optionsJson": "{\"A\":\"Intravenous concentrated 20% albumin (1.5 g/kg day 1, 1.0 g/kg day 3) plus ceftriaxone\",\"B\":\"Rescue medical therapy with intravenous infliximab (5 mg/kg) or ciclosporin\",\"C\":\"Oral ursodeoxycholic acid (UDCA) 13–15 mg/kg/day\",\"D\":\"Regular therapeutic venesection aiming for serum ferritin 50–100 ug/L\",\"E\":\"6-monthly hepatobiliary ultrasound with serum alpha-fetoprotein (AFP)\",\"F\":\"Endoscopic variceal band ligation plus intravenous terlipressin\",\"G\":\"Oral prednisolone 40 mg daily tapered over 4 weeks plus azathioprine\",\"H\":\"Transjugular intrahepatic portosystemic shunt (TIPS) insertion\",\"I\":\"Oral vancomycin 125 mg QID for 10 days\",\"J\":\"High-dose intravenous proton pump inhibitor infusion following endoscopic haemostasis\"}",
+    "correctAnswer": "B",
+    "explanation": "Patients meeting Day 3 Oxford/Travis steroid-failure criteria in acute severe ulcerative colitis require immediate medical rescue therapy with intravenous infliximab or ciclosporin (Option B) alongside colorectal surgical review.",
+    "explanationImageUrl": ""
+  },
+  {
+    "id": "RACP-EMQ-RESP-001",
+    "questionType": "EMQ",
+    "emqGroupId": "RACP-EMQ-RESP-01",
+    "emqTheme": "Advanced Respiratory & Pleural Disease Management (Options A–J)",
+    "specialty": "Respiratory",
+    "questionText": "Stem 1 of 3: A 73-year-old man presents with an 18-month history of dry cough, exertional dyspnoea, Velcro bibasal crackles, and HRCT chest showing definite Usual Interstitial Pneumonia (basal subpleural honeycombing and traction bronchiectasis). Autoimmune serology is negative. Select the antifibrotic therapy from Options A–J.",
+    "questionImageUrl": "data/images/ipf_hrct_uip.svg",
+    "optionA": "Bilevel non-invasive ventilation (NIV / BiPAP) with controlled FiO2 targeting SpO2 88–92%",
+    "optionB": "Oral nintedanib 150 mg BD or pirfenidone",
+    "optionC": "Observation and symptomatic NSAIDs without systemic corticosteroids",
+    "optionD": "18F-FDG PET-CT staging scan followed by CT-guided biopsy",
+    "optionsJson": "{\"A\":\"Bilevel non-invasive ventilation (NIV / BiPAP) with controlled FiO2 targeting SpO2 88–92%\",\"B\":\"Oral nintedanib 150 mg BD or pirfenidone\",\"C\":\"Observation and symptomatic NSAIDs without systemic corticosteroids\",\"D\":\"18F-FDG PET-CT staging scan followed by CT-guided biopsy\",\"E\":\"Intercostal chest tube drainage (thoracostomy) for complicated parapneumonic effusion / empyema\",\"F\":\"Single maintenance and reliever therapy (budesonide/formoterol)\",\"G\":\"Mepolizumab (anti-IL-5 monoclonal antibody)\",\"H\":\"Systemic thrombolysis with intravenous alteplase\",\"I\":\"Bronchoscopic endobronchial valve placement\",\"J\":\"Long-term domiciliary oxygen therapy (>= 15 hours/day)\"}",
+    "correctAnswer": "B",
+    "explanation": "Nintedanib or pirfenidone (Option B) slows annual FVC decline by ~50% in Idiopathic Pulmonary Fibrosis (IPF) with a definite UIP pattern on HRCT.",
+    "explanationImageUrl": "data/images/ipf_hrct_uip.svg"
+  },
+  {
+    "id": "RACP-EMQ-RESP-002",
+    "questionType": "EMQ",
+    "emqGroupId": "RACP-EMQ-RESP-01",
+    "emqTheme": "Advanced Respiratory & Pleural Disease Management (Options A–J)",
+    "specialty": "Respiratory",
+    "questionText": "Stem 2 of 3: A 52-year-old man admitted with right lower lobe pneumonia remains febrile with a loculated right pleural effusion. Diagnostic thoracentesis yields turbid fluid with pH 7.08, glucose 1.4 mmol/L, and LDH 1,450 U/L. In addition to intravenous antibiotics, select the essential next intervention from Options A–J.",
+    "questionImageUrl": "",
+    "optionA": "Bilevel non-invasive ventilation (NIV / BiPAP) with controlled FiO2 targeting SpO2 88–92%",
+    "optionB": "Oral nintedanib 150 mg BD or pirfenidone",
+    "optionC": "Observation and symptomatic NSAIDs without systemic corticosteroids",
+    "optionD": "18F-FDG PET-CT staging scan followed by CT-guided biopsy",
+    "optionsJson": "{\"A\":\"Bilevel non-invasive ventilation (NIV / BiPAP) with controlled FiO2 targeting SpO2 88–92%\",\"B\":\"Oral nintedanib 150 mg BD or pirfenidone\",\"C\":\"Observation and symptomatic NSAIDs without systemic corticosteroids\",\"D\":\"18F-FDG PET-CT staging scan followed by CT-guided biopsy\",\"E\":\"Intercostal chest tube drainage (thoracostomy) for complicated parapneumonic effusion / empyema\",\"F\":\"Single maintenance and reliever therapy (budesonide/formoterol)\",\"G\":\"Mepolizumab (anti-IL-5 monoclonal antibody)\",\"H\":\"Systemic thrombolysis with intravenous alteplase\",\"I\":\"Bronchoscopic endobronchial valve placement\",\"J\":\"Long-term domiciliary oxygen therapy (>= 15 hours/day)\"}",
+    "correctAnswer": "E",
+    "explanation": "A pleural fluid pH < 7.20, glucose < 2.2 mmol/L, or frank pus/organisms defines a complicated parapneumonic effusion / empyema requiring prompt intercostal chest tube drainage (Option E).",
+    "explanationImageUrl": "data/images/lights_criteria.svg"
+  },
+  {
+    "id": "RACP-EMQ-RESP-003",
+    "questionType": "EMQ",
+    "emqGroupId": "RACP-EMQ-RESP-01",
+    "emqTheme": "Advanced Respiratory & Pleural Disease Management (Options A–J)",
+    "specialty": "Respiratory",
+    "questionText": "Stem 3 of 3: A 69-year-old woman with severe COPD has an acute exacerbation with ABG showing pH 7.27, PaCO2 71 mmHg, and PaO2 60 mmHg after 1 hour of nebulised bronchodilators and controlled oxygen. Select the gold-standard ventilatory intervention from Options A–J.",
+    "questionImageUrl": "",
+    "optionA": "Bilevel non-invasive ventilation (NIV / BiPAP) with controlled FiO2 targeting SpO2 88–92%",
+    "optionB": "Oral nintedanib 150 mg BD or pirfenidone",
+    "optionC": "Observation and symptomatic NSAIDs without systemic corticosteroids",
+    "optionD": "18F-FDG PET-CT staging scan followed by CT-guided biopsy",
+    "optionsJson": "{\"A\":\"Bilevel non-invasive ventilation (NIV / BiPAP) with controlled FiO2 targeting SpO2 88–92%\",\"B\":\"Oral nintedanib 150 mg BD or pirfenidone\",\"C\":\"Observation and symptomatic NSAIDs without systemic corticosteroids\",\"D\":\"18F-FDG PET-CT staging scan followed by CT-guided biopsy\",\"E\":\"Intercostal chest tube drainage (thoracostomy) for complicated parapneumonic effusion / empyema\",\"F\":\"Single maintenance and reliever therapy (budesonide/formoterol)\",\"G\":\"Mepolizumab (anti-IL-5 monoclonal antibody)\",\"H\":\"Systemic thrombolysis with intravenous alteplase\",\"I\":\"Bronchoscopic endobronchial valve placement\",\"J\":\"Long-term domiciliary oxygen therapy (>= 15 hours/day)\"}",
+    "correctAnswer": "A",
+    "explanation": "Bilevel non-invasive ventilation (NIV / BiPAP, Option A) is indicated for persistent acute hypercapnic respiratory acidosis (pH 7.25–7.35, PaCO2 > 45 mmHg) in COPD exacerbations.",
+    "explanationImageUrl": ""
+  },
+  {
+    "id": "RACP-EMQ-NEUR-001",
+    "questionType": "EMQ",
+    "emqGroupId": "RACP-EMQ-NEUR-01",
+    "emqTheme": "Acute Neurological Emergencies & Neuromuscular Syndromes (Options A–J)",
+    "specialty": "Neurology",
+    "questionText": "Stem 1 of 3: A 78-year-old man with temporal headache, jaw claudication, ESR 92 mm/hr, and a transient 15-minute episode of right monocular visual loss today presents to ED. Select the most urgent sight-saving therapy from Options A–J.",
+    "questionImageUrl": "",
+    "optionA": "Immediate high-dose intravenous methylprednisolone (500–1000 mg daily for 3 days)",
+    "optionB": "Enteral nimodipine 60 mg every 4 hours for 21 days",
+    "optionC": "Serial bedside Forced Vital Capacity (FVC) and negative inspiratory force monitoring",
+    "optionD": "3,4-diaminopyridine (amifampridine) and CT/PET screening for small-cell lung carcinoma",
+    "optionsJson": "{\"A\":\"Immediate high-dose intravenous methylprednisolone (500–1000 mg daily for 3 days)\",\"B\":\"Enteral nimodipine 60 mg every 4 hours for 21 days\",\"C\":\"Serial bedside Forced Vital Capacity (FVC) and negative inspiratory force monitoring\",\"D\":\"3,4-diaminopyridine (amifampridine) and CT/PET screening for small-cell lung carcinoma\",\"E\":\"Anti-JC polyomavirus (JCV) antibody index testing every 6 months\",\"F\":\"Intravenous immunoglobulin (IVIG) 0.4 g/kg/day for 5 days or plasma exchange\",\"G\":\"Intravenous lorazepam 4 mg followed by levetiracetam loading\",\"H\":\"High-flow 100% oxygen at 12–15 L/min via non-rebreather mask plus subcutaneous sumatriptan\",\"I\":\"Oral pyridostigmine 60 mg QID plus thymectomy evaluation\",\"J\":\"Endovascular mechanical thrombectomy within 6–24 hours\"}",
+    "correctAnswer": "A",
+    "explanation": "Giant Cell Arteritis complicated by visual symptoms (amaurosis fugax or diplopia) requires immediate high-dose intravenous methylprednisolone (500–1000 mg daily, Option A) prior to temporal artery biopsy to prevent irreversible bilateral blindness.",
+    "explanationImageUrl": ""
+  },
+  {
+    "id": "RACP-EMQ-NEUR-002",
+    "questionType": "EMQ",
+    "emqGroupId": "RACP-EMQ-NEUR-01",
+    "emqTheme": "Acute Neurological Emergencies & Neuromuscular Syndromes (Options A–J)",
+    "specialty": "Neurology",
+    "questionText": "Stem 2 of 3: A 61-year-old heavy smoker presents with proximal lower limb weakness that improves briefly after 10 seconds of sustained quadriceps contraction, dry mouth, and anti-P/Q-type voltage-gated calcium channel (VGCC) antibodies. Select the symptomatic treatment and oncological workup from Options A–J.",
+    "questionImageUrl": "",
+    "optionA": "Immediate high-dose intravenous methylprednisolone (500–1000 mg daily for 3 days)",
+    "optionB": "Enteral nimodipine 60 mg every 4 hours for 21 days",
+    "optionC": "Serial bedside Forced Vital Capacity (FVC) and negative inspiratory force monitoring",
+    "optionD": "3,4-diaminopyridine (amifampridine) and CT/PET screening for small-cell lung carcinoma",
+    "optionsJson": "{\"A\":\"Immediate high-dose intravenous methylprednisolone (500–1000 mg daily for 3 days)\",\"B\":\"Enteral nimodipine 60 mg every 4 hours for 21 days\",\"C\":\"Serial bedside Forced Vital Capacity (FVC) and negative inspiratory force monitoring\",\"D\":\"3,4-diaminopyridine (amifampridine) and CT/PET screening for small-cell lung carcinoma\",\"E\":\"Anti-JC polyomavirus (JCV) antibody index testing every 6 months\",\"F\":\"Intravenous immunoglobulin (IVIG) 0.4 g/kg/day for 5 days or plasma exchange\",\"G\":\"Intravenous lorazepam 4 mg followed by levetiracetam loading\",\"H\":\"High-flow 100% oxygen at 12–15 L/min via non-rebreather mask plus subcutaneous sumatriptan\",\"I\":\"Oral pyridostigmine 60 mg QID plus thymectomy evaluation\",\"J\":\"Endovascular mechanical thrombectomy within 6–24 hours\"}",
+    "correctAnswer": "D",
+    "explanation": "Lambert-Eaton Myasthenic Syndrome (LEMS) is treated symptomatically with 3,4-diaminopyridine (amifampridine, which blocks presynaptic K+ channels to prolong action potentials and enhance ACh release) and requires urgent screening for underlying small-cell lung carcinoma (Option D).",
+    "explanationImageUrl": ""
+  },
+  {
+    "id": "RACP-EMQ-NEUR-003",
+    "questionType": "EMQ",
+    "emqGroupId": "RACP-EMQ-NEUR-01",
+    "emqTheme": "Acute Neurological Emergencies & Neuromuscular Syndromes (Options A–J)",
+    "specialty": "Neurology",
+    "questionText": "Stem 3 of 3: A 35-year-old man presents with excruciating unilateral right orbital pain lasting 45 minutes accompanied by ipsilateral conjunctival injection, lacrimation, nasal congestion, and ptosis occurring three times nightly for the past week. Select the most effective acute abortive therapy from Options A–J.",
+    "questionImageUrl": "",
+    "optionA": "Immediate high-dose intravenous methylprednisolone (500–1000 mg daily for 3 days)",
+    "optionB": "Enteral nimodipine 60 mg every 4 hours for 21 days",
+    "optionC": "Serial bedside Forced Vital Capacity (FVC) and negative inspiratory force monitoring",
+    "optionD": "3,4-diaminopyridine (amifampridine) and CT/PET screening for small-cell lung carcinoma",
+    "optionsJson": "{\"A\":\"Immediate high-dose intravenous methylprednisolone (500–1000 mg daily for 3 days)\",\"B\":\"Enteral nimodipine 60 mg every 4 hours for 21 days\",\"C\":\"Serial bedside Forced Vital Capacity (FVC) and negative inspiratory force monitoring\",\"D\":\"3,4-diaminopyridine (amifampridine) and CT/PET screening for small-cell lung carcinoma\",\"E\":\"Anti-JC polyomavirus (JCV) antibody index testing every 6 months\",\"F\":\"Intravenous immunoglobulin (IVIG) 0.4 g/kg/day for 5 days or plasma exchange\",\"G\":\"Intravenous lorazepam 4 mg followed by levetiracetam loading\",\"H\":\"High-flow 100% oxygen at 12–15 L/min via non-rebreather mask plus subcutaneous sumatriptan\",\"I\":\"Oral pyridostigmine 60 mg QID plus thymectomy evaluation\",\"J\":\"Endovascular mechanical thrombectomy within 6–24 hours\"}",
+    "correctAnswer": "H",
+    "explanation": "Acute cluster headache attacks (trigeminal autonomic cephalalgia) respond rapidly to 100% high-flow oxygen (12–15 L/min via non-rebreather mask) and subcutaneous sumatriptan 6 mg (Option H).",
+    "explanationImageUrl": ""
+  },
+  {
+    "id": "RACP-EMQ-ID-001",
+    "questionType": "EMQ",
+    "emqGroupId": "RACP-EMQ-ID-01",
+    "emqTheme": "Antimicrobial & Opportunistic Infection Strategies (Options A–J)",
+    "specialty": "Infectious Diseases",
+    "questionText": "Stem 1 of 3: A 50-year-old diabetic man in Darwin presents during the wet season with septic shock, cavitating pneumonia, and multiple splenic abscesses. Blood cultures isolate Burkholderia pseudomallei. Select the recommended antibiotic regimen from Options A–J.",
+    "questionImageUrl": "",
+    "optionA": "Defer antiretroviral therapy (ART) for 4–6 weeks while completing liposomal amphotericin B + flucytosine",
+    "optionB": "Intensive-phase intravenous meropenem (or ceftazidime) for >= 2 weeks followed by 3 months oral TMP-SMX",
+    "optionC": "Immediate empirical intravenous piperacillin-tazobactam 4.5 g every 6 hours",
+    "optionD": "Oral fidaxomicin 200 mg BD (or oral vancomycin 125 mg QID) for 10 days",
+    "optionsJson": "{\"A\":\"Defer antiretroviral therapy (ART) for 4–6 weeks while completing liposomal amphotericin B + flucytosine\",\"B\":\"Intensive-phase intravenous meropenem (or ceftazidime) for >= 2 weeks followed by 3 months oral TMP-SMX\",\"C\":\"Immediate empirical intravenous piperacillin-tazobactam 4.5 g every 6 hours\",\"D\":\"Oral fidaxomicin 200 mg BD (or oral vancomycin 125 mg QID) for 10 days\",\"E\":\"Full diagnostic colonoscopy to exclude occult colorectal carcinoma\",\"F\":\"Intravenous aciclovir 10 mg/kg every 8 hours\",\"G\":\"Intravenous flucloxacillin 2 g every 4 hours\",\"H\":\"Oral doxycycline 100 mg BD for 14 days\",\"I\":\"Intravenous artesunate followed by oral artemisinin-based combination therapy\",\"J\":\"Trimethoprim-sulfamethoxazole high-dose (15–20 mg/kg/day TMP component) plus adjunctive prednisolone\"}",
+    "correctAnswer": "B",
+    "explanation": "Melioidosis (Burkholderia pseudomallei) requires intensive intravenous meropenem or ceftazidime for at least 2–4 weeks, followed by 3–6 months of oral trimethoprim-sulfamethoxazole eradication therapy (Option B).",
+    "explanationImageUrl": ""
+  },
+  {
+    "id": "RACP-EMQ-ID-002",
+    "questionType": "EMQ",
+    "emqGroupId": "RACP-EMQ-ID-01",
+    "emqTheme": "Antimicrobial & Opportunistic Infection Strategies (Options A–J)",
+    "specialty": "Infectious Diseases",
+    "questionText": "Stem 2 of 3: A 39-year-old man with newly diagnosed HIV (CD4 count 18 cells/uL) presents with subacute dyspnoea, dry cough, exertional desaturation to 84%, bilateral ground-glass infiltrates on chest X-ray, and bronchoalveolar lavage positive for Pneumocystis jirovecii. PaO2 on room air is 58 mmHg. Select the first-line treatment regimen from Options A–J.",
+    "questionImageUrl": "",
+    "optionA": "Defer antiretroviral therapy (ART) for 4–6 weeks while completing liposomal amphotericin B + flucytosine",
+    "optionB": "Intensive-phase intravenous meropenem (or ceftazidime) for >= 2 weeks followed by 3 months oral TMP-SMX",
+    "optionC": "Immediate empirical intravenous piperacillin-tazobactam 4.5 g every 6 hours",
+    "optionD": "Oral fidaxomicin 200 mg BD (or oral vancomycin 125 mg QID) for 10 days",
+    "optionsJson": "{\"A\":\"Defer antiretroviral therapy (ART) for 4–6 weeks while completing liposomal amphotericin B + flucytosine\",\"B\":\"Intensive-phase intravenous meropenem (or ceftazidime) for >= 2 weeks followed by 3 months oral TMP-SMX\",\"C\":\"Immediate empirical intravenous piperacillin-tazobactam 4.5 g every 6 hours\",\"D\":\"Oral fidaxomicin 200 mg BD (or oral vancomycin 125 mg QID) for 10 days\",\"E\":\"Full diagnostic colonoscopy to exclude occult colorectal carcinoma\",\"F\":\"Intravenous aciclovir 10 mg/kg every 8 hours\",\"G\":\"Intravenous flucloxacillin 2 g every 4 hours\",\"H\":\"Oral doxycycline 100 mg BD for 14 days\",\"I\":\"Intravenous artesunate followed by oral artemisinin-based combination therapy\",\"J\":\"Trimethoprim-sulfamethoxazole high-dose (15–20 mg/kg/day TMP component) plus adjunctive prednisolone\"}",
+    "correctAnswer": "J",
+    "explanation": "Moderate-to-severe Pneumocystis jirovecii pneumonia (PJP) with hypoxaemia (PaO2 < 70 mmHg or A-a gradient >= 35 mmHg) requires high-dose trimethoprim-sulfamethoxazole plus adjunctive corticosteroids (prednisolone, Option J) to reduce respiratory failure and mortality.",
+    "explanationImageUrl": ""
+  },
+  {
+    "id": "RACP-EMQ-ID-003",
+    "questionType": "EMQ",
+    "emqGroupId": "RACP-EMQ-ID-01",
+    "emqTheme": "Antimicrobial & Opportunistic Infection Strategies (Options A–J)",
+    "specialty": "Infectious Diseases",
+    "questionText": "Stem 3 of 3: A 69-year-old woman is found to have Streptococcus gallolyticus subsp. gallolyticus bacteraemia and native aortic valve endocarditis. In addition to targeted intravenous benzylpenicillin, select the mandatory gastrointestinal investigation from Options A–J.",
+    "questionImageUrl": "",
+    "optionA": "Defer antiretroviral therapy (ART) for 4–6 weeks while completing liposomal amphotericin B + flucytosine",
+    "optionB": "Intensive-phase intravenous meropenem (or ceftazidime) for >= 2 weeks followed by 3 months oral TMP-SMX",
+    "optionC": "Immediate empirical intravenous piperacillin-tazobactam 4.5 g every 6 hours",
+    "optionD": "Oral fidaxomicin 200 mg BD (or oral vancomycin 125 mg QID) for 10 days",
+    "optionsJson": "{\"A\":\"Defer antiretroviral therapy (ART) for 4–6 weeks while completing liposomal amphotericin B + flucytosine\",\"B\":\"Intensive-phase intravenous meropenem (or ceftazidime) for >= 2 weeks followed by 3 months oral TMP-SMX\",\"C\":\"Immediate empirical intravenous piperacillin-tazobactam 4.5 g every 6 hours\",\"D\":\"Oral fidaxomicin 200 mg BD (or oral vancomycin 125 mg QID) for 10 days\",\"E\":\"Full diagnostic colonoscopy to exclude occult colorectal carcinoma\",\"F\":\"Intravenous aciclovir 10 mg/kg every 8 hours\",\"G\":\"Intravenous flucloxacillin 2 g every 4 hours\",\"H\":\"Oral doxycycline 100 mg BD for 14 days\",\"I\":\"Intravenous artesunate followed by oral artemisinin-based combination therapy\",\"J\":\"Trimethoprim-sulfamethoxazole high-dose (15–20 mg/kg/day TMP component) plus adjunctive prednisolone\"}",
+    "correctAnswer": "E",
+    "explanation": "Streptococcus gallolyticus (bovis biotype I) bacteraemia/endocarditis is strongly associated with underlying colonic adenoma or adenocarcinoma, mandating full colonoscopy (Option E).",
     "explanationImageUrl": ""
   }
 ]

@@ -18,9 +18,10 @@ export async function POST(
       .trim()
       .toUpperCase();
 
-    if (!["A", "B", "C", "D"].includes(selectedOption)) {
+    const validOptions = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+    if (!validOptions.includes(selectedOption)) {
       return NextResponse.json(
-        { error: "Selected option must be A, B, C, or D." },
+        { error: "Selected option must be between A and J." },
         { status: 400 }
       );
     }

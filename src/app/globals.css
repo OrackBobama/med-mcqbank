@@ -2,8 +2,150 @@
 @tailwind components;
 @tailwind utilities;
 
+:root,
+[data-accent="clinical"] {
+  --clinical-50: 240 247 255;
+  --clinical-100: 224 239 254;
+  --clinical-200: 186 224 253;
+  --clinical-300: 124 200 251;
+  --clinical-400: 54 170 245;
+  --clinical-500: 12 142 230;
+  --clinical-600: 0 112 196;
+  --clinical-700: 1 89 159;
+  --clinical-800: 6 75 131;
+  --clinical-900: 11 63 109;
+  --clinical-950: 7 40 73;
+}
+
+[data-accent="emerald"] {
+  --clinical-50: 236 253 245;
+  --clinical-100: 209 250 229;
+  --clinical-200: 167 243 208;
+  --clinical-300: 110 231 183;
+  --clinical-400: 52 211 153;
+  --clinical-500: 16 185 129;
+  --clinical-600: 5 150 105;
+  --clinical-700: 4 120 87;
+  --clinical-800: 6 95 70;
+  --clinical-900: 6 78 59;
+  --clinical-950: 2 44 34;
+}
+
+[data-accent="violet"] {
+  --clinical-50: 245 243 255;
+  --clinical-100: 237 233 254;
+  --clinical-200: 221 214 254;
+  --clinical-300: 196 181 253;
+  --clinical-400: 167 139 250;
+  --clinical-500: 139 92 246;
+  --clinical-600: 124 58 237;
+  --clinical-700: 109 40 217;
+  --clinical-800: 91 33 182;
+  --clinical-900: 76 29 149;
+  --clinical-950: 46 16 101;
+}
+
+[data-accent="rose"] {
+  --clinical-50: 255 241 242;
+  --clinical-100: 255 228 230;
+  --clinical-200: 254 205 211;
+  --clinical-300: 253 164 175;
+  --clinical-400: 251 113 133;
+  --clinical-500: 244 63 94;
+  --clinical-600: 225 29 72;
+  --clinical-700: 190 18 60;
+  --clinical-800: 159 18 57;
+  --clinical-900: 136 19 55;
+  --clinical-950: 76 5 25;
+}
+
+[data-accent="amber"] {
+  --clinical-50: 255 251 235;
+  --clinical-100: 254 243 199;
+  --clinical-200: 253 230 138;
+  --clinical-300: 252 211 77;
+  --clinical-400: 251 191 36;
+  --clinical-500: 245 158 11;
+  --clinical-600: 217 119 6;
+  --clinical-700: 180 83 9;
+  --clinical-800: 146 64 14;
+  --clinical-900: 120 53 15;
+  --clinical-950: 69 26 3;
+}
+
 @layer base {
   body {
-    @apply bg-slate-50 text-slate-900 antialiased;
+    @apply bg-slate-50 text-slate-900 antialiased transition-colors duration-200;
   }
+}
+
+/* Comprehensive Night-Shift Dark Mode overrides */
+html.dark body {
+  background-color: #0b1120;
+  color: #f1f5f9;
+}
+
+html.dark .bg-slate-50 {
+  background-color: #0b1120 !important;
+}
+
+html.dark .bg-white,
+html.dark .bg-white\/95 {
+  background-color: #111827 !important;
+  color: #f1f5f9;
+}
+
+html.dark .bg-slate-100,
+html.dark .bg-slate-50\/60,
+html.dark .bg-slate-50\/70,
+html.dark .bg-slate-50\/80 {
+  background-color: #1e293b !important;
+}
+
+html.dark .border-slate-200,
+html.dark .border-slate-200\/90,
+html.dark .border-slate-200\/80,
+html.dark .border-slate-100,
+html.dark .border-slate-300 {
+  border-color: #334155 !important;
+}
+
+html.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #1e293b !important;
+}
+
+html.dark .text-slate-900,
+html.dark .text-slate-800 {
+  color: #f8fafc !important;
+}
+
+html.dark .text-slate-700,
+html.dark .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-slate-500,
+html.dark .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+html.dark input,
+html.dark select,
+html.dark textarea {
+  background-color: #0f172a !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+html.dark .from-white {
+  --tw-gradient-from: #0f172a var(--tw-gradient-from-position) !important;
+}
+
+html.dark .to-slate-50,
+html.dark .to-slate-100 {
+  --tw-gradient-to: #0b1120 var(--tw-gradient-to-position) !important;
+}
+
+html.dark .from-slate-50 {
+  --tw-gradient-from: #0b1120 var(--tw-gradient-from-position) !important;
 }

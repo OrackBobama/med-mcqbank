@@ -14,19 +14,35 @@ import {
   Award,
   BarChart3,
   PlusCircle,
+  Grid,
+  ListChecks,
 } from "lucide-react";
 
-type OptionKey = "A" | "B" | "C" | "D";
+type OptionKey =
+  | "A"
+  | "B"
+  | "C"
+  | "D"
+  | "E"
+  | "F"
+  | "G"
+  | "H"
+  | "I"
+  | "J";
 
 interface QuestionItem {
   id: string;
   specialty: string;
+  questionType?: "SBA" | "EMQ";
+  emqGroupId?: string | null;
+  emqTheme?: string | null;
   questionText: string;
   questionImageUrl?: string | null;
   optionA: string;
   optionB: string;
   optionC: string;
   optionD: string;
+  optionsMap?: Record<string, string>;
   correctAnswer?: OptionKey;
   explanation?: string;
   explanationImageUrl?: string | null;
@@ -41,6 +57,7 @@ interface SessionInfo {
   id: string;
   specialties: string[];
   filterMode?: string;
+  questionTypeFilter?: string;
   totalQuestions: number;
   completedAt: string | null;
   createdAt: string;
@@ -60,9 +77,11 @@ export default function QuizSessionPage() {
   const router = useRouter();
   const sessionId = params.sessionId;
 
-  const [user, setUser] = useState<{ email: string; name?: string | null } | null>(
-    null
-  );
+  const [user, setUser] = useState<{
+    email: string;
+    name?: string | null;
+    avatarUrl?: string | null;
+  } | null>(null);
   const [session, setSession] = useState<SessionInfo | null>(null);
   const [questions, setQuestions] = useState<QuestionItem[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -174,7 +193,11 @@ export default function QuizSessionPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-slate-50">
-        <Navbar userEmail={user?.email} userName={user?.name} />
+        <Navbar
+          userEmail={user?.email}
+          userName={user?.name}
+          userAvatar={user?.avatarUrl}
+        />
         <div className="mx-auto max-w-4xl px-4 py-16 text-center">
           <p className="text-sm font-medium text-slate-500">
             Loading clinical examination vignette...
@@ -187,7 +210,11 @@ export default function QuizSessionPage() {
   if (error || !session || !currentQuestion) {
     return (
       <div className="min-h-screen bg-slate-50">
-        <Navbar userEmail={user?.email} userName={user?.name} />
+        <Navbar
+          userEmail={user?.email}
+          userName={user?.name}
+          userAvatar={user?.avatarUrl}
+        />
         <div className="mx-auto max-w-3xl px-4 py-12">
           <div className="rounded-2xl border border-rose-200 bg-white p-8 text-center shadow-sm">
             <p className="text-base font-semibold text-rose-700">
@@ -205,12 +232,47 @@ export default function QuizSessionPage() {
     );
   }
 
-  const optionsList: { key: OptionKey; text: string }[] = [
-    { key: "A", text: currentQuestion.optionA },
-    { key: "B", text: currentQuestion.optionB },
-    { key: "C", text: currentQuestion.optionC },
-    { key: "D", text: currentQuestion.optionD },
+  const isEmq = currentQuestion.questionType === "EMQ";
+  const ALL_OPTION_KEYS: OptionKey[] = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
   ];
+
+  const optionsList: { key: OptionKey; text: string }[] =
+    isEmq && currentQuestion.optionsMap
+      ? ALL_OPTION_KEYS.filter(
+          (k) =>
+            currentQuestion.optionsMap &&
+            Boolean(currentQuestion.optionsMap[k])
+        ).map((k) => ({
+          key: k,
+          text: currentQuestion.optionsMap![k],
+        }))
+      : [
+          { key: "A", text: currentQuestion.optionA },
+          { key: "B", text: currentQuestion.optionB },
+          { key: "C", text: currentQuestion.optionC },
+          { key: "D", text: currentQuestion.optionD },
+        ];
+
+  // Find sibling questions in this session that belong to the same EMQ group
+  const emqGroupSiblings =
+    isEmq && currentQuestion.emqGroupId
+      ? questions
+          .map((q, idx) => ({ q, idx }))
+          .filter((item) => item.q.emqGroupId === currentQuestion.emqGroupId)
+      : [];
+  const currentStemPositionInGroup = emqGroupSiblings.findIndex(
+    (item) => item.idx === currentIndex
+  );
 
   const accuracyPercent =
     session.answeredCount > 0
@@ -219,7 +281,11 @@ export default function QuizSessionPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 pb-16">
-      <Navbar userEmail={user?.email} userName={user?.name} />
+      <Navbar
+        userEmail={user?.email}
+        userName={user?.name}
+        userAvatar={user?.avatarUrl}
+      />
 
       <main className="mx-auto max-w-4xl px-4 pt-6 sm:px-6">
         {/* Top Session Progress & Question Navigator */}
@@ -228,6 +294,25 @@ export default function QuizSessionPage() {
             <div className="flex flex-wrap items-center gap-2.5">
               <span className="rounded-lg bg-clinical-800 px-3 py-1 text-xs font-bold text-white">
                 Question {currentIndex + 1} of {questions.length}
+              </span>
+              <span
+                className={`inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs font-bold ring-1 ring-inset ${
+                  isEmq
+                    ? "bg-violet-50 text-violet-800 ring-violet-200"
+                    : "bg-sky-50 text-sky-800 ring-sky-200"
+                }`}
+              >
+                {isEmq ? (
+                  <>
+                    <Grid className="h-3.5 w-3.5" />
+                    EMQ ({optionsList.length} Options)
+                  </>
+                ) : (
+                  <>
+                    <ListChecks className="h-3.5 w-3.5" />
+                    SBA (4 Options)
+                  </>
+                )}
               </span>
               <span className="rounded-lg bg-clinical-50 px-2.5 py-1 text-xs font-semibold text-clinical-700 ring-1 ring-inset ring-clinical-200">
                 {currentQuestion.specialty}
@@ -362,6 +447,76 @@ export default function QuizSessionPage() {
         ) : (
           /* Single-Question Clinical Vignette View */
           <div className="space-y-6">
+            {/* EMQ Shared Theme & Multi-Stem Group Banner */}
+            {isEmq && (
+              <div className="rounded-2xl border border-violet-200 bg-violet-50/70 p-5 shadow-sm">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex items-center gap-1.5 rounded-lg bg-violet-700 px-2.5 py-1 text-xs font-bold text-white">
+                      <Grid className="h-3.5 w-3.5" />
+                      Extended Matching Question (EMQ)
+                    </span>
+                    {currentQuestion.emqGroupId && (
+                      <span className="rounded-md bg-white/80 px-2 py-0.5 font-mono text-xs font-semibold text-violet-800 ring-1 ring-violet-200">
+                        Set: {currentQuestion.emqGroupId}
+                      </span>
+                    )}
+                  </div>
+                  {emqGroupSiblings.length > 1 && (
+                    <span className="text-xs font-semibold text-violet-800">
+                      Clinical Stem {currentStemPositionInGroup + 1} of{" "}
+                      {emqGroupSiblings.length} in this Shared Option Set
+                    </span>
+                  )}
+                </div>
+
+                {currentQuestion.emqTheme && (
+                  <p className="mt-2.5 text-sm font-bold text-slate-900">
+                    Theme: {currentQuestion.emqTheme}
+                  </p>
+                )}
+                <p className="mt-1 text-xs text-slate-600">
+                  For each clinical presentation below, select the single most appropriate option from the shared{" "}
+                  <strong>{optionsList.length}-option list (A–{optionsList[optionsList.length - 1]?.key || "J"})</strong>. Each option may be used once, more than once, or not at all.
+                </p>
+
+                {emqGroupSiblings.length > 1 && (
+                  <div className="mt-3.5 flex flex-wrap items-center gap-2 border-t border-violet-200/70 pt-3">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-violet-800">
+                      Linked Stems in Set:
+                    </span>
+                    {emqGroupSiblings.map((sib, sIdx) => {
+                      const isActiveStem = sib.idx === currentIndex;
+                      const sibAttempt = sib.q.attempt;
+                      return (
+                        <button
+                          key={sib.q.id}
+                          type="button"
+                          onClick={() => setCurrentIndex(sib.idx)}
+                          className={`inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1 text-xs font-semibold transition ${
+                            isActiveStem
+                              ? "border-violet-700 bg-violet-700 text-white shadow-sm"
+                              : sibAttempt
+                              ? sibAttempt.isCorrect
+                                ? "border-emerald-300 bg-emerald-50 text-emerald-800"
+                                : "border-rose-300 bg-rose-50 text-rose-800"
+                              : "border-violet-200 bg-white text-violet-900 hover:bg-violet-100/60"
+                          }`}
+                        >
+                          <span>Stem {sIdx + 1} (Q{sib.idx + 1})</span>
+                          {sibAttempt && (
+                            <span className="font-bold">
+                              · {sibAttempt.selectedOption}
+                            </span>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            )}
+
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
               {/* Clinical Stem */}
               <div className="prose prose-slate max-w-none">
@@ -378,8 +533,28 @@ export default function QuizSessionPage() {
                 />
               )}
 
-              {/* 4 Options (A–D) */}
-              <div className="mt-7 space-y-3">
+              {/* Answer Options Header for EMQ vs SBA */}
+              <div className="mt-7 mb-3 flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                  {isEmq
+                    ? `Shared Extended Matching Option List (Options A–${
+                        optionsList[optionsList.length - 1]?.key || "J"
+                      })`
+                    : "Select Single Best Answer (Options A–D)"}
+                </span>
+                <span className="text-xs text-slate-400">
+                  {optionsList.length} Options Available
+                </span>
+              </div>
+
+              {/* Options List (4 Options A–D for SBA, up to 10 Options A–J in 2-col grid for EMQ) */}
+              <div
+                className={
+                  isEmq
+                    ? "grid grid-cols-1 gap-2.5 sm:grid-cols-2"
+                    : "space-y-3"
+                }
+              >
                 {optionsList.map((opt) => {
                   const attempt = currentQuestion.attempt;
                   const isAnswered = Boolean(attempt);
@@ -421,20 +596,20 @@ export default function QuizSessionPage() {
                       type="button"
                       disabled={isAnswered || Boolean(submittingOption)}
                       onClick={() => handleSelectOption(opt.key)}
-                      className={`flex w-full items-start gap-4 rounded-xl border p-4 text-left transition ${cardStyle}`}
+                      className={`flex w-full items-start gap-3.5 rounded-xl border p-3.5 text-left transition ${cardStyle}`}
                     >
                       <span
                         className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border text-sm font-bold transition ${badgeStyle}`}
                       >
                         {opt.key}
                       </span>
-                      <div className="flex-1 pt-1 text-sm font-medium leading-relaxed sm:text-base">
+                      <div className="flex-1 pt-1 text-sm font-medium leading-relaxed">
                         {opt.text}
                       </div>
                       {isAnswered && isCorrectAnswer && (
                         <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-bold text-emerald-800">
                           <CheckCircle2 className="h-4 w-4 text-emerald-600" />
-                          Correct Answer
+                          Correct
                         </span>
                       )}
                       {isAnswered && isSelected && !isCorrectAnswer && (

@@ -8,14 +8,21 @@ datasource db {
 }
 
 model User {
-  id            String        @id @default(cuid())
-  email         String        @unique
-  name          String?
-  trainingLevel String?
-  hospital      String?
-  createdAt     DateTime      @default(now())
-  quizSessions  QuizSession[]
-  quizAttempts  QuizAttempt[]
+  id                String        @id @default(cuid())
+  email             String        @unique
+  name              String?
+  trainingLevel     String?
+  hospital          String?
+  state             String?
+  specialtyInterest String?
+  phone             String?
+  avatarUrl         String?
+  examDate          DateTime?
+  themeMode         String        @default("light") // "light" | "dark"
+  accentColor       String        @default("clinical") // "clinical" | "emerald" | "violet" | "rose" | "amber"
+  createdAt         DateTime      @default(now())
+  quizSessions      QuizSession[]
+  quizAttempts      QuizAttempt[]
 }
 
 model OtpToken {
@@ -31,13 +38,17 @@ model OtpToken {
 
 model Question {
   id                  String        @id
+  questionType        String        @default("SBA") // "SBA" (4-option A-D) | "EMQ" (up to 10-option A-J)
+  emqGroupId          String?
+  emqTheme            String?
   questionText        String
   questionImageUrl    String?
   optionA             String
   optionB             String
   optionC             String
   optionD             String
-  correctAnswer       String // "A" | "B" | "C" | "D"
+  optionsJson         String? // JSON dictionary {"A": "...", "B": "...", ..., "J": "..."} for EMQs
+  correctAnswer       String // "A"-"D" for SBA, "A"-"J" for EMQ
   explanation         String
   explanationImageUrl String?
   specialty           String
@@ -45,19 +56,22 @@ model Question {
   attempts            QuizAttempt[]
 
   @@index([specialty])
+  @@index([questionType])
+  @@index([emqGroupId])
 }
 
 model QuizSession {
-  id             String        @id @default(cuid())
-  userId         String
-  user           User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-  specialties    String // JSON string array of selected specialties
-  filterMode     String        @default("all") // "all" | "new" | "incorrect" | "new_and_incorrect"
-  questionIds    String // JSON string array of ordered Question IDs
-  totalQuestions Int
-  completedAt    DateTime?
-  createdAt      DateTime      @default(now())
-  attempts       QuizAttempt[]
+  id                 String        @id @default(cuid())
+  userId             String
+  user               User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  specialties        String // JSON string array of selected specialties
+  filterMode         String        @default("all") // "all" | "new" | "incorrect" | "new_and_incorrect"
+  questionTypeFilter String        @default("all") // "all" | "SBA" | "EMQ"
+  questionIds        String // JSON string array of ordered Question IDs
+  totalQuestions     Int
+  completedAt        DateTime?
+  createdAt          DateTime      @default(now())
+  attempts           QuizAttempt[]
 
   @@index([userId])
 }
@@ -70,7 +84,7 @@ model QuizAttempt {
   user           User        @relation(fields: [userId], references: [id], onDelete: Cascade)
   questionId     String
   question       Question    @relation(fields: [questionId], references: [id], onDelete: Cascade)
-  selectedOption String // "A" | "B" | "C" | "D"
+  selectedOption String // "A"-"D" for SBA, "A"-"J" for EMQ
   isCorrect      Boolean
   answeredAt     DateTime    @default(now())
 

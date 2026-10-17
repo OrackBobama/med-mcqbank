@@ -13,6 +13,13 @@ export async function GET() {
       name: user.name,
       trainingLevel: user.trainingLevel,
       hospital: user.hospital,
+      state: user.state,
+      specialtyInterest: user.specialtyInterest,
+      phone: user.phone,
+      avatarUrl: user.avatarUrl,
+      examDate: user.examDate,
+      themeMode: user.themeMode,
+      accentColor: user.accentColor,
     },
   });
 }
