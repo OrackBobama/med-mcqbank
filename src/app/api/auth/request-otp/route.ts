@@ -6,6 +6,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const rawEmail = String(body.email || "").trim().toLowerCase();
+    const isRegistration = Boolean(body.isRegistration);
 
     if (!rawEmail || !rawEmail.includes("@")) {
       return NextResponse.json(
@@ -15,6 +16,26 @@ export async function POST(req: NextRequest) {
         },
         { status: 400 }
       );
+    }
+
+    // If creating a new account, verify that the email is not already registered
+    if (isRegistration) {
+      const existingUser = await prisma.user.findUnique({
+        where: { email: rawEmail },
+        select: { id: true, email: true },
+      });
+
+      if (existingUser) {
+        return NextResponse.json(
+          {
+            error:
+              "This email address is already registered. Redirecting you to the sign-in page.",
+            code: "EMAIL_ALREADY_REGISTERED",
+            email: rawEmail,
+          },
+          { status: 409 }
+        );
+      }
     }
 
     // Generate a 6-digit numeric OTP

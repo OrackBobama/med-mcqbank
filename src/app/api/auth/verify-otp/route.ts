@@ -12,12 +12,32 @@ export async function POST(req: NextRequest) {
       ? String(body.trainingLevel).trim()
       : undefined;
     const rawHospital = body.hospital ? String(body.hospital).trim() : undefined;
+    const isRegistration = Boolean(body.isRegistration);
 
     if (!rawEmail || !rawCode) {
       return NextResponse.json(
         { error: "Email and 6-digit passcode are required." },
         { status: 400 }
       );
+    }
+
+    if (isRegistration) {
+      const existingUser = await prisma.user.findUnique({
+        where: { email: rawEmail },
+        select: { id: true, email: true },
+      });
+
+      if (existingUser) {
+        return NextResponse.json(
+          {
+            error:
+              "This email address is already registered. Redirecting you to the sign-in page.",
+            code: "EMAIL_ALREADY_REGISTERED",
+            email: rawEmail,
+          },
+          { status: 409 }
+        );
+      }
     }
 
     const otpRecord = await prisma.otpToken.findFirst({

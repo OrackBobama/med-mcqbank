@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import React, { Suspense, useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import FractoLogo from "@/components/FractoLogo";
 import {
   Mail,
@@ -10,21 +10,44 @@ import {
   ShieldCheck,
   CheckCircle2,
   AlertCircle,
+  Info,
 } from "lucide-react";
 
-export default function LoginPage() {
+function LoginFormContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [step, setStep] = useState<"email" | "otp">("email");
   const [email, setEmail] = useState("");
   const [otpCode, setOtpCode] = useState("");
+  const [alreadyRegisteredNotice, setAlreadyRegisteredNotice] = useState<
+    string | null
+  >(null);
   const [infoMessage, setInfoMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const isRegisteredRedirect = searchParams.get("registered") === "1";
+    const paramEmail = searchParams.get("email")?.trim() || "";
+
+    if (paramEmail) {
+      setEmail(paramEmail);
+    }
+
+    if (isRegisteredRedirect) {
+      setAlreadyRegisteredNotice(
+        paramEmail
+          ? `The email address "${paramEmail}" is already registered. Please sign in to your existing account below.`
+          : "That email address is already registered. Please sign in to your existing account below."
+      );
+    }
+  }, [searchParams]);
 
   const handleRequestOtp = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
     setInfoMessage(null);
+    setAlreadyRegisteredNotice(null);
     setLoading(true);
 
     try {
@@ -116,6 +139,16 @@ export default function LoginPage() {
               Email OTP
             </span>
           </div>
+
+          {alreadyRegisteredNotice && (
+            <div
+              role="alert"
+              className="mb-5 flex items-start gap-2.5 rounded-xl border border-amber-300 bg-amber-50 p-3.5 text-xs font-medium text-amber-900"
+            >
+              <Info className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />
+              <span>{alreadyRegisteredNotice}</span>
+            </div>
+          )}
 
           {error && (
             <div className="mb-5 flex items-start gap-2.5 rounded-xl border border-rose-200 bg-rose-50 p-3.5 text-xs font-medium text-rose-800">
@@ -244,5 +277,19 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center bg-slate-50 text-sm text-slate-500">
+          Loading sign-in portal...
+        </div>
+      }
+    >
+      <LoginFormContent />
+    </Suspense>
   );
 }

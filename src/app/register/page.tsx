@@ -34,13 +34,25 @@ export default function RegisterPage() {
     setInfoMessage(null);
     setLoading(true);
 
+    const normalizedEmail = email.trim().toLowerCase();
+
     try {
       const res = await fetch("/api/auth/request-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({
+          email: normalizedEmail,
+          isRegistration: true,
+        }),
       });
       const data = await res.json();
+
+      if (res.status === 409 || data.code === "EMAIL_ALREADY_REGISTERED") {
+        router.push(
+          `/login?registered=1&email=${encodeURIComponent(normalizedEmail)}`
+        );
+        return;
+      }
 
       if (!res.ok) {
         setError(data.error || "Failed to send verification passcode.");
@@ -49,7 +61,7 @@ export default function RegisterPage() {
 
       setInfoMessage(
         data.message ||
-          `We sent a 6-digit verification passcode to ${email}. Please check your inbox.`
+          `We sent a 6-digit verification passcode to ${normalizedEmail}. Please check your inbox.`
       );
       setStep("otp");
     } catch {
@@ -64,19 +76,29 @@ export default function RegisterPage() {
     setError(null);
     setLoading(true);
 
+    const normalizedEmail = email.trim().toLowerCase();
+
     try {
       const res = await fetch("/api/auth/verify-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email,
+          email: normalizedEmail,
           code: otpCode,
           name,
           trainingLevel,
           hospital,
+          isRegistration: true,
         }),
       });
       const data = await res.json();
+
+      if (res.status === 409 || data.code === "EMAIL_ALREADY_REGISTERED") {
+        router.push(
+          `/login?registered=1&email=${encodeURIComponent(normalizedEmail)}`
+        );
+        return;
+      }
 
       if (!res.ok) {
         setError(data.error || "Invalid verification code.");
