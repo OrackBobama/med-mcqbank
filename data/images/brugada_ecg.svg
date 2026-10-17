@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" width="800" height="320">
+  <defs>
+    <pattern id="smallGrid" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M 16 0 L 0 0 0 16" fill="none" stroke="#fecdd3" stroke-width="0.6"/>
+    </pattern>
+    <pattern id="largeGrid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <rect width="80" height="80" fill="url(#smallGrid)"/>
+      <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#fda4af" stroke-width="1.3"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="320" fill="#fff1f2"/>
+  <rect width="800" height="320" fill="url(#largeGrid)"/>
+
+  <!-- Header bar -->
+  <rect x="16" y="14" width="768" height="34" rx="6" fill="#0f172a" fill-opacity="0.9"/>
+  <text x="28" y="36" fill="#f8fafc" font-family="monospace" font-size="13" font-weight="bold">
+    12-LEAD ECG — RIGHT PRECORDIAL LEADS (V1, V2) · 25 mm/s · 10 mm/mV
+  </text>
+  <text x="545" y="36" fill="#38bdf8" font-family="monospace" font-size="12" font-weight="bold">
+    HR: 68 bpm | Coved ST Elevation >= 3mm
+  </text>
+
+  <!-- Lead V1 Label -->
+  <rect x="28" y="66" width="54" height="24" rx="4" fill="#0f172a"/>
+  <text x="41" y="83" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold">V1</text>
+
+  <!-- Lead V1 Trace: Spontaneous Type 1 Coved Brugada Pattern -->
+  <path d="M 90,145 L 130,145 Q 140,132 150,145 L 168,145 L 173,152 L 182,82 L 190,115 C 202,72 222,78 242,118 C 258,150 272,185 292,185 C 310,185 322,145 335,145 L 395,145 Q 405,132 415,145 L 433,145 L 438,152 L 447,82 L 455,115 C 467,72 487,78 507,118 C 523,150 537,185 557,185 C 575,185 587,145 600,145 L 660,145 Q 670,132 680,145 L 698,145 L 703,152 L 712,82 L 720,115 C 732,72 752,78 768,118"
+        fill="none" stroke="#0f172a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Annotation Callouts on V1 -->
+  <line x1="212" y1="78" x2="212" y2="56" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="3,2"/>
+  <rect x="148" y="52" width="165" height="22" rx="4" fill="#dc2626"/>
+  <text x="156" y="67" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="bold">
+    Coved ST Elevation (3 mm)
+  </text>
+
+  <line x1="292" y1="188" x2="292" y2="206" stroke="#0284c7" stroke-width="1.8" stroke-dasharray="3,2"/>
+  <rect x="228" y="204" width="142" height="22" rx="4" fill="#0284c7"/>
+  <text x="237" y="219" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="bold">
+    Symmetrical Inverted T
+  </text>
+
+  <!-- Lead V2 Label -->
+  <rect x="28" y="220" width="54" height="24" rx="4" fill="#0f172a"/>
+  <text x="41" y="237" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold">V2</text>
+
+  <!-- Lead V2 Trace -->
+  <path d="M 90,275 L 130,275 Q 140,263 150,275 L 168,275 L 173,283 L 182,212 L 190,242 C 204,205 224,212 244,248 C 258,276 272,306 292,306 C 310,306 322,275 335,275 L 395,275 Q 405,263 415,275 L 433,275 L 438,283 L 447,212 L 455,242 C 469,205 489,212 509,248 C 523,276 537,306 557,306 C 575,306 587,275 600,275 L 660,275 Q 670,263 680,275 L 698,275 L 703,283 L 712,212 L 720,242 C 734,205 754,212 768,248"
+        fill="none" stroke="#0f172a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String        @id @default(cuid())
+  email         String        @unique
+  name          String?
+  trainingLevel String?
+  hospital      String?
+  createdAt     DateTime      @default(now())
+  quizSessions  QuizSession[]
+  quizAttempts  QuizAttempt[]
+}
+
+model OtpToken {
+  id        String   @id @default(cuid())
+  email     String
+  code      String
+  expiresAt DateTime
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([email])
+}
+
+model Question {
+  id                  String        @id
+  questionText        String
+  questionImageUrl    String?
+  optionA             String
+  optionB             String
+  optionC             String
+  optionD             String
+  correctAnswer       String // "A" | "B" | "C" | "D"
+  explanation         String
+  explanationImageUrl String?
+  specialty           String
+  createdAt           DateTime      @default(now())
+  attempts            QuizAttempt[]
+
+  @@index([specialty])
+}
+
+model QuizSession {
+  id             String        @id @default(cuid())
+  userId         String
+  user           User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  specialties    String // JSON string array of selected specialties
+  filterMode     String        @default("all") // "all" | "new" | "incorrect" | "new_and_incorrect"
+  questionIds    String // JSON string array of ordered Question IDs
+  totalQuestions Int
+  completedAt    DateTime?
+  createdAt      DateTime      @default(now())
+  attempts       QuizAttempt[]
+
+  @@index([userId])
+}
+
+model QuizAttempt {
+  id             String      @id @default(cuid())
+  sessionId      String
+  session        QuizSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  userId         String
+  user           User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  questionId     String
+  question       Question    @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  selectedOption String // "A" | "B" | "C" | "D"
+  isCorrect      Boolean
+  answeredAt     DateTime    @default(now())
+
+  @@unique([sessionId, questionId])
+  @@index([userId])
+  @@index([questionId])
+}

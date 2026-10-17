@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300">
+  <rect width="800" height="300" rx="12" fill="#090d16"/>
+  <rect x="16" y="16" width="768" height="268" rx="8" fill="#111827" stroke="#374151" stroke-width="1.5"/>
+
+  <text x="34" y="44" fill="#38bdf8" font-family="monospace" font-size="14" font-weight="bold">
+    HIGH-RESOLUTION CT (HRCT) CHEST — AXIAL LOWER ZONE LUNG WINDOW
+  </text>
+  <text x="34" y="64" fill="#9ca3af" font-family="sans-serif" font-size="12">
+    Definite Usual Interstitial Pneumonia (UIP) Pattern: Subpleural Basal Honeycombing &amp; Traction Bronchiectasis
+  </text>
+
+  <!-- Stylized Axial Lung Fields -->
+  <!-- Right Lung -->
+  <ellipse cx="195" cy="175" rx="95" ry="75" fill="#1f2937" stroke="#6b7280" stroke-width="2.5"/>
+  <!-- Left Lung -->
+  <ellipse cx="375" cy="175" rx="95" ry="75" fill="#1f2937" stroke="#6b7280" stroke-width="2.5"/>
+  <!-- Mediastinum / Heart / Spine -->
+  <ellipse cx="285" cy="165" rx="34" ry="42" fill="#4b5563"/>
+  <circle cx="285" cy="225" r="14" fill="#9ca3af"/>
+
+  <!-- Subpleural Honeycombing Cysts (Basal / Peripheral Rim) -->
+  <g stroke="#d1d5db" stroke-width="1.4" fill="#090d16">
+    <circle cx="118" cy="195" r="7"/>
+    <circle cx="128" cy="208" r="8"/>
+    <circle cx="142" cy="220" r="7"/>
+    <circle cx="158" cy="230" r="8"/>
+    <circle cx="176" cy="236" r="7"/>
+    <circle cx="195" cy="238" r="7"/>
+    <circle cx="136" cy="202" r="6"/>
+    <circle cx="152" cy="215" r="6"/>
+
+    <circle cx="452" cy="195" r="7"/>
+    <circle cx="442" cy="208" r="8"/>
+    <circle cx="428" cy="220" r="7"/>
+    <circle cx="412" cy="230" r="8"/>
+    <circle cx="394" cy="236" r="7"/>
+    <circle cx="375" cy="238" r="7"/>
+    <circle cx="432" cy="202" r="6"/>
+    <circle cx="418" cy="215" r="6"/>
+  </g>
+
+  <!-- Reticular lines & Traction Bronchiectasis -->
+  <path d="M 155,175 L 135,210 M 175,180 L 165,225 M 395,180 L 408,225 M 415,175 L 435,210" stroke="#9ca3af" stroke-width="2"/>
+
+  <!-- Findings Legend Box -->
+  <rect x="505" y="84" width="258" height="175" rx="8" fill="#1f2937" stroke="#4b5563" stroke-width="1.5"/>
+  <text x="523" y="112" fill="#f9fafb" font-family="sans-serif" font-size="13" font-weight="bold">
+    Radiological UIP Hallmarks
+  </text>
+  <text x="523" y="138" fill="#38bdf8" font-family="sans-serif" font-size="12">
+    1. Subpleural &amp; basal predominance
+  </text>
+  <text x="523" y="164" fill="#fbbf24" font-family="sans-serif" font-size="12">
+    2. Clustered cystic honeycombing
+  </text>
+  <text x="523" y="190" fill="#34d399" font-family="sans-serif" font-size="12">
+    3. Traction bronchiectasis
+  </text>
+  <text x="523" y="216" fill="#f87171" font-family="sans-serif" font-size="12">
+    4. Absence of ground-glass / nodules
+  </text>
+  <text x="523" y="242" fill="#e5e7eb" font-family="sans-serif" font-size="11" font-weight="bold">
+    Rx: Nintedanib or Pirfenidone
+  </text>
+</svg>

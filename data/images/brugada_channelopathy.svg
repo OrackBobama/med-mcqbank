@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280" width="800" height="280">
+  <rect width="800" height="280" rx="12" fill="#f8fafc"/>
+  <rect x="16" y="16" width="768" height="248" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <text x="36" y="46" fill="#0f172a" font-family="sans-serif" font-size="15" font-weight="bold">
+    Brugada Syndrome Pathophysiology: SCN5A (Nav1.5) Loss-of-Function Channelopathy
+  </text>
+  <text x="36" y="66" fill="#64748b" font-family="sans-serif" font-size="12">
+    Autosomal dominant mutation reducing inward Na+ current (INa) during Phase 0/1 in RV outflow tract epicardium
+  </text>
+
+  <!-- Box 1 -->
+  <rect x="36" y="92" width="220" height="142" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="52" y="118" fill="#1e3a8a" font-family="sans-serif" font-size="13" font-weight="bold">1. Genetic Defect</text>
+  <text x="52" y="142" fill="#1e40af" font-family="sans-serif" font-size="12">• SCN5A gene (Chr 3p22)</text>
+  <text x="52" y="164" fill="#1e40af" font-family="sans-serif" font-size="12">• Encodes Nav1.5 alpha-subunit</text>
+  <text x="52" y="186" fill="#1e40af" font-family="sans-serif" font-size="12">• ↓ Peak inward Na+ current</text>
+  <text x="52" y="208" fill="#1e40af" font-family="sans-serif" font-size="12">• Unopposed Ito K+ current</text>
+
+  <!-- Arrow 1 -->
+  <line x1="256" y1="163" x2="286" y2="163" stroke="#0284c7" stroke-width="2.5"/>
+  <polygon points="286,158 296,163 286,168" fill="#0284c7"/>
+
+  <!-- Box 2 -->
+  <rect x="296" y="92" width="220" height="142" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+  <text x="312" y="118" fill="#7f1d1d" font-family="sans-serif" font-size="13" font-weight="bold">2. Transmural Dispersion</text>
+  <text x="312" y="142" fill="#991b1b" font-family="sans-serif" font-size="12">• Loss of RVOT epicardial dome</text>
+  <text x="312" y="164" fill="#991b1b" font-family="sans-serif" font-size="12">• Voltage gradient (Epi vs Endo)</text>
+  <text x="312" y="186" fill="#991b1b" font-family="sans-serif" font-size="12">• Coved ST elevation in V1–V2</text>
+  <text x="312" y="208" fill="#991b1b" font-family="sans-serif" font-size="12">• Phase 2 re-entry -> VF / SCD</text>
+
+  <!-- Arrow 2 -->
+  <line x1="516" y1="163" x2="546" y2="163" stroke="#0284c7" stroke-width="2.5"/>
+  <polygon points="546,158 556,163 546,168" fill="#0284c7"/>
+
+  <!-- Box 3 -->
+  <rect x="556" y="92" width="208" height="142" rx="8" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1.5"/>
+  <text x="572" y="118" fill="#064e3b" font-family="sans-serif" font-size="13" font-weight="bold">3. RACP Key Management</text>
+  <text x="572" y="142" fill="#065f46" font-family="sans-serif" font-size="12">• Avoid Na+ channel blockers</text>
+  <text x="572" y="164" fill="#065f46" font-family="sans-serif" font-size="12">• Treat fevers aggressively</text>
+  <text x="572" y="186" fill="#065f46" font-family="sans-serif" font-size="12">• ICD if cardiac arrest / syncope</text>
+  <text x="572" y="208" fill="#065f46" font-family="sans-serif" font-size="12">• Quinidine if electrical storm</text>
+</svg>
