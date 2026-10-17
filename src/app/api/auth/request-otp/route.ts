@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { sendOtpEmail } from "@/lib/email";
 
 export async function POST(req: NextRequest) {
   try {
@@ -8,7 +9,10 @@ export async function POST(req: NextRequest) {
 
     if (!rawEmail || !rawEmail.includes("@")) {
       return NextResponse.json(
-        { error: "Please enter a valid clinical or institutional email address." },
+        {
+          error:
+            "Please enter a valid clinical or institutional email address.",
+        },
         { status: 400 }
       );
     }
@@ -31,25 +35,23 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    console.log(
-      `\n=========================================================\n` +
-        `[RACP Auth] One-Time Passcode for ${rawEmail}: ${code}\n` +
-        `Expires at: ${expiresAt.toISOString()}\n` +
-        `=========================================================\n`
-    );
+    // Send transactional OTP email via Resend
+    await sendOtpEmail({
+      to: rawEmail,
+      code,
+    });
 
     return NextResponse.json({
       success: true,
       email: rawEmail,
       message: "A 6-digit one-time passcode has been sent to your email.",
-      // Expose devOtp in non-production environments to simplify local development & testing
-      devOtp: process.env.NODE_ENV !== "production" ? code : undefined,
     });
   } catch (err) {
     console.error("[request-otp] Error:", err);
-    return NextResponse.json(
-      { error: "Failed to generate one-time passcode." },
-      { status: 500 }
-    );
+    const errorMessage =
+      err instanceof Error
+        ? err.message
+        : "Failed to send one-time passcode email.";
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }

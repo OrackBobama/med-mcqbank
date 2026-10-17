@@ -13,7 +13,6 @@ import {
   ArrowRight,
   CheckCircle2,
   AlertCircle,
-  Sparkles,
   UserPlus,
 } from "lucide-react";
 
@@ -25,13 +24,14 @@ export default function RegisterPage() {
   const [trainingLevel, setTrainingLevel] = useState("BPT 2");
   const [hospital, setHospital] = useState("");
   const [otpCode, setOtpCode] = useState("");
-  const [devOtp, setDevOtp] = useState<string | null>(null);
+  const [infoMessage, setInfoMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleRequestOtp = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+    setInfoMessage(null);
     setLoading(true);
 
     try {
@@ -47,9 +47,10 @@ export default function RegisterPage() {
         return;
       }
 
-      if (data.devOtp) {
-        setDevOtp(data.devOtp);
-      }
+      setInfoMessage(
+        data.message ||
+          `We sent a 6-digit verification passcode to ${email}. Please check your inbox.`
+      );
       setStep("otp");
     } catch {
       setError("Network error while requesting verification passcode.");
@@ -120,7 +121,7 @@ export default function RegisterPage() {
               <p className="mt-0.5 text-xs text-slate-500">
                 {step === "profile"
                   ? "Step 1 of 2 — Enter your clinical training details"
-                  : `Step 2 of 2 — Enter the 6-digit OTP sent to ${email}`}
+                  : `Step 2 of 2 — Enter the 6-digit OTP emailed to ${email}`}
               </p>
             </div>
             <span className="inline-flex items-center gap-1 rounded-full bg-clinical-50 px-2.5 py-1 text-xs font-medium text-clinical-700 ring-1 ring-inset ring-clinical-200">
@@ -180,7 +181,7 @@ export default function RegisterPage() {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="clara.vance@health.nsw.gov.au"
+                    placeholder="you@example.com"
                     className="block w-full rounded-xl border border-slate-300 bg-white py-2.5 pl-10 pr-4 text-sm text-slate-900 placeholder-slate-400 shadow-sm focus:border-clinical-600 focus:outline-none focus:ring-2 focus:ring-clinical-500/20"
                   />
                 </div>
@@ -253,27 +254,9 @@ export default function RegisterPage() {
             </form>
           ) : (
             <form onSubmit={handleVerifyAndRegister} className="space-y-5">
-              {devOtp && (
-                <div className="rounded-xl border border-amber-200 bg-amber-50/90 p-3.5 text-xs text-amber-900">
-                  <div className="flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 font-semibold text-amber-900">
-                      <Sparkles className="h-4 w-4 text-amber-600" />
-                      Local Development OTP Preview
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => setOtpCode(devOtp)}
-                      className="rounded-md bg-amber-200/70 px-2 py-0.5 text-[11px] font-semibold text-amber-950 transition hover:bg-amber-300/80"
-                    >
-                      Auto-fill OTP
-                    </button>
-                  </div>
-                  <p className="mt-1.5 text-amber-800">
-                    Your 6-digit registration code is:{" "}
-                    <code className="rounded bg-white px-1.5 py-0.5 font-mono text-sm font-bold tracking-widest text-slate-900 ring-1 ring-amber-300">
-                      {devOtp}
-                    </code>
-                  </p>
+              {infoMessage && (
+                <div className="rounded-xl border border-emerald-200 bg-emerald-50/90 p-3.5 text-xs font-medium text-emerald-900">
+                  {infoMessage}
                 </div>
               )}
 
@@ -326,6 +309,7 @@ export default function RegisterPage() {
                     setStep("profile");
                     setOtpCode("");
                     setError(null);
+                    setInfoMessage(null);
                   }}
                   className="text-center text-xs font-medium text-slate-500 hover:text-slate-800"
                 >
